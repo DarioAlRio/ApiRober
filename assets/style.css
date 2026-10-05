@@ -69,7 +69,8 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
 
 .dark{background:var(--brown);color:#f8e6cc}
 .dark h2{color:var(--amber)}
-.dark .combs-r{right:-40px;top:40px;opacity:.35}
+.dark{position:relative;overflow:hidden}
+.dark .combs-r{position:absolute;width:260px;color:var(--amber);right:-40px;top:40px;opacity:.35;pointer-events:none}
 .steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px;margin-top:40px;counter-reset:s}
 .steps li{border-top:3px solid var(--amber);padding-top:20px}
 .steps span{font-size:2.6rem;font-weight:900;color:var(--amber);line-height:1}
@@ -121,3 +122,30 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
   .facts{grid-template-columns:1fr}
 }
 .flying-bee{padding:0!important;background:none!important;border-radius:0!important}
+
+/* Mejoras v2 */
+.nw{white-space:nowrap}
+.hex svg{width:28px;height:28px}
+.product{background:#fff}
+.jar svg{width:100%;max-width:380px;margin:0 auto;filter:drop-shadow(0 30px 40px rgba(90,49,23,.25))}
+.jar.in svg{animation:float 7s ease-in-out infinite}
+.spec{list-style:none;margin:-20px 0 32px;border-top:2px solid var(--amber)}
+.spec li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(122,69,34,.15)}
+.spec span{text-transform:uppercase;font-size:.75rem;letter-spacing:.1em;font-weight:700;color:var(--amber-d)}
+.spec b{color:var(--brown);text-align:right}
+.stats{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stats li{background:var(--brown);color:#f8e6cc;border-radius:22px;padding:26px 22px;display:grid;gap:6px;clip-path:polygon(0 0,100% 0,100% 82%,88% 100%,0 100%)}
+.stats li:nth-child(2n){background:var(--amber);color:var(--brown-d)}
+.stats b{font-size:2.4rem;font-weight:900;line-height:1;color:var(--amber)}
+.stats li:nth-child(2n) b{color:var(--brown)}
+.stats span{font-weight:600;font-size:.92rem}
+.narrow{max-width:820px}
+.qa{display:grid;gap:12px;margin-top:20px}
+.qa details{background:#fff;border-radius:18px;padding:0 24px;border-left:5px solid var(--amber);box-shadow:0 16px 30px -26px rgba(90,49,23,.6)}
+.qa summary{cursor:pointer;list-style:none;padding:20px 30px 20px 0;font-weight:800;color:var(--brown);position:relative}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";position:absolute;right:0;top:50%;translate:0 -50%;font-size:1.6rem;color:var(--amber-d);transition:rotate .25s}
+.qa details[open] summary::after{rotate:45deg}
+.qa details p{padding:0 0 20px}
+@media (max-width:820px){.spec li{flex-direction:column;gap:2px}.spec b{text-align:left}.jar svg{max-width:260px}}
+@media (max-width:480px){.stats b{font-size:1.9rem}.stats li{padding:20px 16px}}

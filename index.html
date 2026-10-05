@@ -25,6 +25,8 @@
 {"@type":"Product","name":"Miel de flores cruda Apirober 500 g","brand":{"@id":"https://apirober.es/#org"},
  "description":"Miel cruda de flores 100% española, de Fuentemolinos (Burgos). Sin pasteurizar.","weight":{"@type":"QuantitativeValue","value":500,"unitCode":"GRM"},
  "countryOfOrigin":"ES"}
+,
+{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mi miel se ha puesto dura, ¿está mala?","acceptedAnswer":{"@type":"Answer","text":"Al contrario: es señal de que es cruda. La miel sin calentar cristaliza de forma natural con el frío. Si la quieres líquida, pon el tarro al baño maría templado (sin pasar de 40 °C) y remueve."}},{"@type":"Question","name":"¿Qué significa que sea «cruda»?","acceptedAnswer":{"@type":"Answer","text":"Que no se ha pasteurizado ni calentado para retrasar la cristalización. Así conserva su aroma, sus enzimas y el polen que traen las abejas."}},{"@type":"Question","name":"¿Cómo se conserva y cuánto dura?","acceptedAnswer":{"@type":"Answer","text":"En un sitio seco, a temperatura ambiente y con el tarro bien cerrado. No necesita nevera. La fecha de consumo preferente va indicada en cada lote."}},{"@type":"Question","name":"¿Pueden tomarla los niños?","acceptedAnswer":{"@type":"Answer","text":"Sí a partir del año. Como cualquier miel, no se recomienda a bebés menores de 12 meses."}},{"@type":"Question","name":"¿Hacéis envíos?","acceptedAnswer":{"@type":"Answer","text":"Sí. Escríbenos desde el formulario de abajo con cuántos tarros quieres y tu localidad, y te decimos precio y forma de envío."}}]}
 ]}
 </script>
 </head>
@@ -38,9 +40,11 @@
   <nav aria-label="Principal">
     <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
     <ul id="menu">
+      <li><a href="#tarro">El tarro</a></li>
       <li><a href="#miel">La miel</a></li>
       <li><a href="#proceso">Del panal al tarro</a></li>
       <li><a href="#origen">Origen</a></li>
+      <li><a href="#dudas">Dudas</a></li>
       <li><a class="btn btn-sm" href="#pedidos">Pedir miel</a></li>
     </ul>
   </nav>
@@ -53,7 +57,7 @@
     <div class="wrap hero-in">
       <div class="hero-copy reveal">
         <p class="eyebrow">Fuentemolinos · Burgos</p>
-        <h1>Miel cruda,<br><span>como la hacen</span><br>las abejas.</h1>
+        <h1>Miel cruda,<br><span class="nw">como la hacen</span><br>las abejas.</h1>
         <p class="hero-lead">Miel de flores de nuestras colmenas en la Ribera burgalesa. Sin calentar, sin mezclas, 100% española.</p>
         <div class="ctas">
           <a class="btn btn-amber" href="#pedidos">Quiero un tarro</a>
@@ -81,24 +85,61 @@
       <p class="lead">No la pasteurizamos ni la calentamos para que tarde más en cristalizar. Conserva el aroma de las flores, sus enzimas y el polen que traen las abejas del campo.</p>
       <ul class="cards">
         <li class="card reveal">
-          <span class="hex">✿</span>
+          <span class="hex" aria-hidden="true"><svg viewBox="0 0 24 24"><g fill="currentColor"><circle cx="12" cy="6" r="3.6"/><circle cx="17.7" cy="10.2" r="3.6"/><circle cx="15.5" cy="17" r="3.6"/><circle cx="8.5" cy="17" r="3.6"/><circle cx="6.3" cy="10.2" r="3.6"/></g><circle cx="12" cy="12" r="3" fill="#fdb12b"/></svg></span>
           <h3>Multifloral</h3>
           <p>Néctar de tomillo, brezo, espliego y las flores silvestres que rodean el colmenar. Cada cosecha sabe un poco distinta.</p>
         </li>
         <li class="card reveal">
-          <span class="hex">❄</span>
+          <span class="hex" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 3 3-3M9 20l3-3 3 3"/></svg></span>
           <h3>Extraída en frío</h3>
           <p>Centrifugamos los cuadros y decantamos por reposo. Sin choques de calor que apaguen el sabor.</p>
         </li>
         <li class="card reveal">
-          <span class="hex">ES</span>
+          <span class="hex" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6" fill="currentColor"/></svg></span>
           <h3>100% española</h3>
           <p>Nada de mezclas de origen UE y no UE. Una única procedencia: Fuentemolinos, Burgos.</p>
         </li>
       </ul>
-      <aside class="note reveal">
-        <strong>¿Se ha solidificado?</strong> Buena señal. La miel cruda cristaliza con el frío de forma natural. Si la prefieres líquida, pon el tarro al baño maría templado (menos de 40 °C) y remueve.
-      </aside>
+    </div>
+  </section>
+
+  <!-- PRODUCTO -->
+  <section id="tarro" class="section product">
+    <div class="wrap split">
+      <figure class="jar reveal" aria-hidden="true">
+        <svg viewBox="0 0 320 400">
+          <defs>
+            <linearGradient id="honey" x1="0" x2="1"><stop offset="0" stop-color="#e88a0c"/><stop offset=".45" stop-color="#fdb12b"/><stop offset="1" stop-color="#d97c08"/></linearGradient>
+            <linearGradient id="lid" x1="0" x2="1"><stop offset="0" stop-color="#5a3117"/><stop offset=".5" stop-color="#8a5229"/><stop offset="1" stop-color="#5a3117"/></linearGradient>
+          </defs>
+          <ellipse cx="160" cy="382" rx="120" ry="12" fill="#7a4522" opacity=".18"/>
+          <rect x="62" y="40" width="196" height="54" rx="12" fill="url(#lid)"/>
+          <path d="M70 54h180M70 66h180M70 78h180" stroke="#5a3117" stroke-width="2" opacity=".5"/>
+          <path d="M74 94h172v18c22 8 34 26 34 50v170c0 28-20 44-48 44H88c-28 0-48-16-48-44V162c0-24 12-42 34-50z" fill="url(#honey)"/>
+          <path d="M60 170c0-18 8-30 22-36" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".45" fill="none"/>
+          <path d="M58 200v110" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".3"/>
+          <rect x="40" y="190" width="240" height="110" fill="#7a4522"/>
+          <g fill="none" stroke="#fdb12b" stroke-width="3" opacity=".9"><path d="M52 205l9 5v10l-9 5-9-5v-10zM70 215l9 5v10l-9 5-9-5v-10zM52 225l9 5v10l-9 5-9-5v-10zM268 260l9 5v10l-9 5-9-5v-10zM250 270l9 5v10l-9 5-9-5v-10zM268 280l9 5v10l-9 5-9-5v-10z"/></g>
+          <path d="M160 132c-46 34-74 62-74 98a74 74 0 0 0 148 0c0-36-28-64-74-98z" fill="#fdb12b" stroke="#7a4522" stroke-width="7"/>
+          <image href="/assets/abeja.png?v=2" x="144" y="176" width="32" height="32"/>
+          <text x="160" y="232" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="12" fill="#7a4522">APIROBER</text>
+          <text x="160" y="254" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="13.5" fill="#7a4522">MIEL DE FLORES</text>
+          <text x="160" y="272" text-anchor="middle" font-family="Montserrat" font-weight="500" font-size="11" fill="#7a4522">500 g</text>
+        </svg>
+      </figure>
+      <div class="reveal">
+        <p class="eyebrow">El tarro</p>
+        <h2>Miel de flores cruda, 500&nbsp;g</h2>
+        <p class="lead">Un solo producto, hecho bien. Miel multifloral de la cosecha de este año, envasada a mano en Fuentemolinos en tarro de vidrio.</p>
+        <ul class="spec">
+          <li><span>Tipo</span><b>Miel cruda multifloral</b></li>
+          <li><span>Origen</span><b>Fuentemolinos, Burgos (España)</b></li>
+          <li><span>Tratamiento</span><b>Sin pasteurizar · extraída en frío</b></li>
+          <li><span>Formato</span><b>Tarro de vidrio de 500 g</b></li>
+          <li><span>Sabor</span><b>Floral, intenso, con final a monte</b></li>
+        </ul>
+        <a class="btn" href="#pedidos">Pedir tarros</a>
+      </div>
     </div>
   </section>
 
@@ -131,17 +172,27 @@
           <div><dt>Consumo preferente</dt><dd>Indicado en cada lote</dd></div>
         </dl>
       </div>
-      <figure class="map reveal" aria-label="Situación de Fuentemolinos en la provincia de Burgos">
-        <svg viewBox="0 0 300 300" aria-hidden="true">
-          <defs><pattern id="hx" width="30" height="26" patternUnits="userSpaceOnUse"><path d="M7.5 0h15L30 13 22.5 26h-15L0 13z" fill="none" stroke="#fdb12b" stroke-opacity=".35" stroke-width="1.5"/></pattern></defs>
-          <rect width="300" height="300" rx="28" fill="#7a4522"/>
-          <rect width="300" height="300" rx="28" fill="url(#hx)"/>
-          <circle cx="150" cy="150" r="70" fill="#fdb12b" opacity=".18"/>
-          <circle cx="150" cy="150" r="38" fill="#fdb12b" opacity=".3"/>
-          <circle cx="150" cy="150" r="10" fill="#fdb12b"/>
-        </svg>
-        <figcaption>41.7° N · 3.8° O<br><strong>Fuentemolinos</strong></figcaption>
-      </figure>
+      <ul class="stats reveal" aria-label="Apirober en cifras">
+        <li><b>1</b><span>única procedencia: Fuentemolinos</span></li>
+        <li><b>0</b><span>mezclas con otras mieles</span></li>
+        <li><b>&lt;40&nbsp;°C</b><span>nunca la calentamos por encima</span></li>
+        <li><b>500&nbsp;g</b><span>tarro de vidrio, envasado en origen</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="dudas" class="section faq">
+    <div class="wrap narrow">
+      <p class="eyebrow">Dudas frecuentes</p>
+      <h2>Lo que nos preguntáis</h2>
+      <div class="qa">
+        <details class="reveal"><summary>Mi miel se ha puesto dura, ¿está mala?</summary><p>Al contrario: es señal de que es cruda. La miel sin calentar cristaliza de forma natural con el frío. Si la quieres líquida, pon el tarro al baño maría templado (sin pasar de 40 °C) y remueve.</p></details>
+        <details class="reveal"><summary>¿Qué significa que sea «cruda»?</summary><p>Que no se ha pasteurizado ni calentado para retrasar la cristalización. Así conserva su aroma, sus enzimas y el polen que traen las abejas.</p></details>
+        <details class="reveal"><summary>¿Cómo se conserva y cuánto dura?</summary><p>En un sitio seco, a temperatura ambiente y con el tarro bien cerrado. No necesita nevera. La fecha de consumo preferente va indicada en cada lote.</p></details>
+        <details class="reveal"><summary>¿Pueden tomarla los niños?</summary><p>Sí a partir del año. Como cualquier miel, no se recomienda a bebés menores de 12 meses.</p></details>
+        <details class="reveal"><summary>¿Hacéis envíos?</summary><p>Sí. Escríbenos desde el formulario de abajo con cuántos tarros quieres y tu localidad, y te decimos precio y forma de envío.</p></details>
+      </div>
     </div>
   </section>
 
