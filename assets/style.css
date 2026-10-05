@@ -197,13 +197,13 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
 .hint{font-size:.78rem;margin-top:8px;opacity:.75;text-align:center}
 
 /* 9. Bordes de panal */
-.hex-edges{overflow:visible;overflow-x:clip;margin:34px 0}
-.hex-edges::before,.hex-edges::after,.hex-top::before{content:"";position:absolute;left:0;right:0;height:35px;background:var(--brown);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 34.64'%3E%3Cpath d='M0 34.64V17.32L10 0h20l10 17.32h20v17.32z'/%3E%3C/svg%3E") repeat-x 0 0/60px 35px;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 34.64'%3E%3Cpath d='M0 34.64V17.32L10 0h20l10 17.32h20v17.32z'/%3E%3C/svg%3E") repeat-x 0 0/60px 35px}
-.hex-edges::before,.hex-top::before{top:-34px}
-.hex-edges::after{bottom:-34px;transform:scaleY(-1)}
-.hex-top{position:relative;margin-top:34px}
+.hex-edges{overflow:visible;overflow-x:clip;z-index:2}
+.hex-edges::before,.hex-edges::after,.hex-top::before{content:"";position:absolute;left:0;right:0;height:30px;background:var(--brown);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 30' preserveAspectRatio='none'%3E%3Cpath d='M0 30V15L26 0l26 15v15z'/%3E%3C/svg%3E") repeat-x 0 0/52px 30px;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 30' preserveAspectRatio='none'%3E%3Cpath d='M0 30V15L26 0l26 15v15z'/%3E%3C/svg%3E") repeat-x 0 0/52px 30px}
+.hex-edges::before,.hex-top::before{top:-29px}
+.hex-edges::after{bottom:-29px;transform:scaleY(-1)}
+.hex-top{position:relative;z-index:2}
 .dark .combs-r{z-index:0}
 .order{background:var(--cream)}
 .order .order-card{position:relative;z-index:1}
