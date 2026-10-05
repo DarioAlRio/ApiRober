@@ -204,8 +204,10 @@
         <p>Vendemos directamente, sin intermediarios. Escríbenos con cuántos tarros quieres y dónde estás, y te contamos precio y envío.</p>
         <form class="order-form" id="orderForm">
           <label>Nombre<input name="nombre" required autocomplete="name"></label>
-          <fieldset class="full sizes"><legend>¿Cuántos tarros?</legend><label>250 g<input name="t250" type="number" min="0" value="0" required></label><label>500 g<input name="t500" type="number" min="0" value="1" required></label><label>1 kg<input name="t1000" type="number" min="0" value="0" required></label></fieldset>
-          <label class="full">Localidad<input name="localidad" required autocomplete="address-level2"></label>
+          <label>Localidad<input name="localidad" required autocomplete="address-level2"></label>
+          <fieldset class="full sizes"><legend>¿Cuántos tarros?</legend>
+            <div class="sizes-row"><label>250 g<input name="t250" type="number" min="0" value="0" required></label><label>500 g<input name="t500" type="number" min="0" value="1" required></label><label>1 kg<input name="t1000" type="number" min="0" value="0" required></label></div>
+          </fieldset>
           <button class="btn full" type="submit">Enviar pedido por correo</button>
         </form>
         <p class="small">Se abrirá tu programa de correo con el mensaje preparado.</p>
