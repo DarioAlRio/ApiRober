@@ -20,7 +20,7 @@ document.getElementById('orderForm').addEventListener('submit', e => {
   const lineas = [['t250', '250 g'], ['t500', '500 g'], ['t1000', '1 kg']]
     .filter(([k]) => +f.get(k) > 0).map(([k, t]) => `- ${f.get(k)} tarro(s) de ${t}`);
   if (!lineas.length) { alert('Indica al menos un tarro.'); return; }
-  const body = `Hola, soy ${f.get('nombre')} (${f.get('localidad')}).\nQuería pedir miel de flores:\n${lineas.join('\n')}\n¿Precio y envío?`;
+  const body = `Hola, soy ${f.get('nombre')}.\nQuería pedir miel de flores:\n${lineas.join('\n')}\n¿Qué precio tendría?`;
   location.href = `mailto:info@apirober.es?subject=${encodeURIComponent('Pedido de miel')}&body=${encodeURIComponent(body)}`;
 });
 document.getElementById('y').textContent = new Date().getFullYear();
