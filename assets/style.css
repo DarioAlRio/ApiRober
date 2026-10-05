@@ -228,3 +228,9 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
 html:not(.js) .honey-level{transform:translateY(22px)}
 .order-form input{color:#3b2210}
 .mobile-cta span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mobile-cta .btn{flex:none}
+
+/* Abeja que sigue el cursor */
+.cursor-bee{position:fixed;left:0;top:0;width:40px;height:40px;z-index:80;pointer-events:none;opacity:0;transition:opacity .3s;will-change:transform;
+  filter:drop-shadow(1.5px 0 0 #fdb12b) drop-shadow(-1.5px 0 0 #fdb12b) drop-shadow(0 1.5px 0 #fdb12b) drop-shadow(0 -1.5px 0 #fdb12b) drop-shadow(0 6px 6px rgba(0,0,0,.25))}
+.cursor-bee.on{opacity:1}
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-bee{display:none}}
