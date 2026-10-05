@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<circle cx="32" cy="32" r="31" fill="#fdb12b"/>
-<g transform="translate(33 34) scale(.8) translate(-32 -32) rotate(35 32 32)" fill="#7a4522">
- <path d="M28 9q-3-6-8-6M36 9q3-6 8-6" stroke="#7a4522" stroke-width="2.4" fill="none" stroke-linecap="round"/>
- <circle cx="32" cy="12" r="5"/>
- <ellipse cx="32" cy="22" rx="6.5" ry="5.5"/>
- <ellipse cx="18" cy="24" rx="10" ry="6.5" transform="rotate(-25 18 24)"/>
- <ellipse cx="45" cy="33" rx="6.5" ry="11" transform="rotate(-20 45 33)"/>
- <path d="M32 27c7 0 10 6 10 14s-6 17-10 20c-4-3-10-12-10-20s3-14 10-14z"/>
- <path d="M23 35h18M22.5 42h19M25 49h14" stroke="#fdb12b" stroke-width="2.6"/>
-</g>
+<rect width="64" height="64" rx="14" fill="#fdb12b"/>
+<g transform="translate(32 32) scale(.86) translate(-32 -32)"><g transform="rotate(45 32 32)" fill="#7a4522">
+ <path d="M29 8q-4-5-9-4M35 8q4-5 9-4" stroke="#7a4522" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+ <circle cx="32" cy="11" r="4.6"/>
+ <ellipse cx="32" cy="21" rx="6" ry="5"/>
+ <path transform="translate(36 21) rotate(8)" d="M0 0C5-10 22-12 22 0S5 10 0 0z"/>
+ <path transform="translate(28 21) rotate(-8) scale(-1 1)" d="M0 0C5-10 22-12 22 0S5 10 0 0z"/>
+ <path d="M32 26c6 0 9 5 9 12 0 9-5 16-9 22-4-6-9-13-9-22 0-7 3-12 9-12z"/>
+ <path d="M23.5 35h17M23.2 42h17.6M25.5 49h13" stroke="#fdb12b" stroke-width="2.8"/>
+</g></g>
 </svg>
