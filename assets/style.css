@@ -210,20 +210,35 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
 
 /* 10. Modo oscuro */
 @media (prefers-color-scheme:dark){
-  :root{--cream:#1c120b; --card:#2a1b10; --ink:#f1e2cc; --head:#fdb12b; --nav:rgba(28,18,11,.88)}
-  .btn{background:var(--amber);color:var(--brown-d)}
-  .btn-ghost{color:var(--amber);box-shadow:inset 0 0 0 3px var(--amber)}
-  .nav{border-bottom-color:rgba(253,177,43,.15)}
-  .nav-toggle{background:var(--amber);color:var(--brown-d)}
-  .stats li:nth-child(odd){background:#3a2414}
-  .order-card{color:var(--brown-d)}
-  .order-card h2{color:var(--brown)}
-  .order-card .btn{background:var(--brown);color:var(--amber)}
-  .order-form input{background:#fff8ea}
-  .spec li,.qa details{border-color:rgba(253,177,43,.18)}
-  .jar svg{filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
-  .drip path{fill:var(--brown)}
+  :root:not([data-theme="light"]){--cream:#1c120b; --card:#2a1b10; --ink:#f1e2cc; --head:#fdb12b; --nav:rgba(28,18,11,.88)}
+  :root:not([data-theme="light"]) .btn:not(.btn-ghost-light){background:var(--amber);color:var(--brown-d)}
+  :root:not([data-theme="light"]) .btn-ghost{color:var(--amber);box-shadow:inset 0 0 0 3px var(--amber)}
+  :root:not([data-theme="light"]) .nav{border-bottom-color:rgba(253,177,43,.15)}
+  :root:not([data-theme="light"]) .nav-toggle{background:var(--amber);color:var(--brown-d)}
+  :root:not([data-theme="light"]) .stats li:nth-child(odd){background:#3a2414}
+  :root:not([data-theme="light"]) .order-card{color:var(--brown-d)}
+  :root:not([data-theme="light"]) .order-card h2{color:var(--brown)}
+  :root:not([data-theme="light"]) .order-card .btn{background:var(--brown);color:var(--amber)}
+  :root:not([data-theme="light"]) .order-form input{background:#fff8ea}
+  :root:not([data-theme="light"]) .spec li,:root:not([data-theme="light"]) .qa details{border-color:rgba(253,177,43,.18)}
+  :root:not([data-theme="light"]) .jar svg{filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+  :root:not([data-theme="light"]) .drip path{fill:var(--brown)}
+
 }
+:root[data-theme="dark"]{--cream:#1c120b; --card:#2a1b10; --ink:#f1e2cc; --head:#fdb12b; --nav:rgba(28,18,11,.88)}
+  :root[data-theme="dark"] .btn:not(.btn-ghost-light){background:var(--amber);color:var(--brown-d)}
+  :root[data-theme="dark"] .btn-ghost{color:var(--amber);box-shadow:inset 0 0 0 3px var(--amber)}
+  :root[data-theme="dark"] .nav{border-bottom-color:rgba(253,177,43,.15)}
+  :root[data-theme="dark"] .nav-toggle{background:var(--amber);color:var(--brown-d)}
+  :root[data-theme="dark"] .stats li:nth-child(odd){background:#3a2414}
+  :root[data-theme="dark"] .order-card{color:var(--brown-d)}
+  :root[data-theme="dark"] .order-card h2{color:var(--brown)}
+  :root[data-theme="dark"] .order-card .btn{background:var(--brown);color:var(--amber)}
+  :root[data-theme="dark"] .order-form input{background:#fff8ea}
+  :root[data-theme="dark"] .spec li,:root[data-theme="dark"] .qa details{border-color:rgba(253,177,43,.18)}
+  :root[data-theme="dark"] .jar svg{filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+  :root[data-theme="dark"] .drip path{fill:var(--brown)}
+:root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light}
 @media (prefers-reduced-motion:reduce){.honey-level{transform:translateY(22px)!important}.falling-drop,.scroll-bee{display:none}}
 html:not(.js) .honey-level{transform:translateY(22px)}
 .order-form input{color:#3b2210}
@@ -234,3 +249,17 @@ html:not(.js) .honey-level{transform:translateY(22px)}
   filter:drop-shadow(1.5px 0 0 #fdb12b) drop-shadow(-1.5px 0 0 #fdb12b) drop-shadow(0 1.5px 0 #fdb12b) drop-shadow(0 -1.5px 0 #fdb12b) drop-shadow(0 6px 6px rgba(0,0,0,.25))}
 .cursor-bee.on{opacity:1}
 @media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-bee{display:none}}
+
+/* Botón de modo claro/oscuro */
+.theme-toggle{width:40px;height:40px;border-radius:50%;border:2px solid var(--head);background:transparent;color:var(--head);cursor:pointer;display:grid;place-items:center;transition:transform .3s}
+.theme-toggle:hover{transform:rotate(-20deg)}
+.theme-toggle svg{width:20px;height:20px;grid-area:1/1}
+.theme-toggle .i-sun{display:none}
+:root[data-theme="dark"] .theme-toggle .i-sun{display:block}
+:root[data-theme="dark"] .theme-toggle .i-moon{display:none}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .theme-toggle .i-sun{display:block}
+  :root:not([data-theme="light"]) .theme-toggle .i-moon{display:none}
+}
+.nav nav{display:flex;align-items:center;gap:16px}
+@media (max-width:820px){.nav nav{flex-direction:row-reverse;gap:8px}}

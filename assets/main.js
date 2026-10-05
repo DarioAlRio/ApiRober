@@ -89,3 +89,14 @@ if (cb && matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedi
   }, { passive: true });
   document.addEventListener('mouseleave', () => cb.classList.remove('on'));
 }
+
+// Modo claro / oscuro: respeta el del sistema hasta que se pulsa el botón, y lo recuerda
+const tt = document.querySelector('.theme-toggle'), rootEl = document.documentElement;
+const isDark = () => rootEl.dataset.theme ? rootEl.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+const label = () => tt.setAttribute('aria-label', isDark() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+tt.addEventListener('click', () => {
+  rootEl.dataset.theme = isDark() ? 'light' : 'dark';
+  try { localStorage.setItem('tema', rootEl.dataset.theme); } catch (e) {}
+  label();
+});
+label();
