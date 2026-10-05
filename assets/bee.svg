@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g fill="#7a4522"><ellipse cx="22" cy="20" rx="11" ry="16" transform="rotate(-35 22 20)" opacity=".85"/><ellipse cx="42" cy="20" rx="11" ry="16" transform="rotate(35 42 20)" opacity=".85"/><path d="M27 14q-6-9-11-8M37 14q6-9 11-8" stroke="#7a4522" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="32" cy="22" r="7"/></g><ellipse cx="32" cy="42" rx="12" ry="17" fill="#fdb12b" stroke="#7a4522" stroke-width="4"/><path d="M21 37h22M20.5 45h23M23 52.5h18" stroke="#7a4522" stroke-width="5"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<g transform="translate(32 33) scale(.92) translate(-32 -32) rotate(35 32 32)" fill="#7a4522">
+ <path d="M28 9q-3-6-8-6M36 9q3-6 8-6" stroke="#7a4522" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+ <circle cx="32" cy="12" r="5"/>
+ <ellipse cx="32" cy="22" rx="6.5" ry="5.5"/>
+ <ellipse cx="18" cy="24" rx="10" ry="6.5" transform="rotate(-25 18 24)"/>
+ <ellipse cx="45" cy="33" rx="6.5" ry="11" transform="rotate(-20 45 33)"/>
+ <path d="M32 27c7 0 10 6 10 14s-6 17-10 20c-4-3-10-12-10-20s3-14 10-14z"/>
+ <path d="M23 35h18M22.5 42h19M25 49h14" stroke="#fdb12b" stroke-width="2.6"/>
+</g>
+</svg>
