@@ -1,0 +1,23 @@
+// Menú móvil
+const t = document.querySelector('.nav-toggle'), m = document.getElementById('menu');
+t.addEventListener('click', () => {
+  const o = t.getAttribute('aria-expanded') === 'true';
+  t.setAttribute('aria-expanded', String(!o)); m.classList.toggle('open', !o);
+});
+m.addEventListener('click', e => { if (e.target.closest('a')) { t.setAttribute('aria-expanded', 'false'); m.classList.remove('open'); } });
+
+// Aparición al hacer scroll
+const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+document.documentElement.classList.add('js');
+
+// Pedido por correo
+document.getElementById('orderForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const body = `Hola, soy ${f.get('nombre')} (${f.get('localidad')}).\nQuería pedir ${f.get('tarros')} tarro(s) de miel de flores de 500 g.\n¿Precio y envío?`;
+  location.href = `mailto:info@apirober.es?subject=${encodeURIComponent('Pedido de miel')}&body=${encodeURIComponent(body)}`;
+});
+document.getElementById('y').textContent = new Date().getFullYear();
