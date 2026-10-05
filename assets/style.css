@@ -120,3 +120,5 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
   .order-form{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr}
 }
+img[src^="/assets/abeja.png"]{border-radius:22%}
+.flying-bee{padding:0!important;border-radius:50%!important}
