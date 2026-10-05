@@ -24,3 +24,44 @@ document.getElementById('orderForm').addEventListener('submit', e => {
   location.href = `mailto:info@apirober.es?subject=${encodeURIComponent('Pedido de miel')}&body=${encodeURIComponent(body)}`;
 });
 document.getElementById('y').textContent = new Date().getFullYear();
+
+// Tarros a escala: un clic en el tarro o en +/− cambia la cantidad
+document.querySelectorAll('.size').forEach(s => {
+  const input = s.querySelector('input');
+  const sync = () => s.classList.toggle('picked', +input.value > 0);
+  const add = d => {
+    input.value = Math.max(0, (+input.value || 0) + d); sync();
+    s.classList.remove('bump'); void s.offsetWidth; s.classList.add('bump');
+  };
+  s.querySelector('.jar-btn').addEventListener('click', () => add(1));
+  s.querySelector('.plus').addEventListener('click', () => add(1));
+  s.querySelector('.minus').addEventListener('click', () => add(-1));
+  input.addEventListener('input', sync); sync();
+});
+
+// Barra de pedido en móvil: se oculta al llegar al formulario
+const cta = document.querySelector('.mobile-cta'), pedidos = document.getElementById('pedidos');
+if (cta && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([e]) => cta.classList.toggle('hide', e.isIntersecting), { threshold: .1 }).observe(pedidos);
+}
+
+// Abeja que recorre la línea de puntos según el scroll
+const sb = document.querySelector('.scroll-bee');
+if (sb && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const path = sb.querySelector('path'), bee = sb.querySelector('img'), svg = sb.querySelector('svg');
+  const len = path.getTotalLength();
+  let ticking = false, lastY = 0;
+  const move = () => {
+    ticking = false;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const p = max > 0 ? scrollY / max : 0;
+    sb.classList.toggle('on', scrollY > innerHeight * .6);
+    const pt = path.getPointAtLength(p * len);
+    const r = svg.getBoundingClientRect();
+    const x = pt.x / 80 * r.width - 22, y = pt.y / 1000 * r.height - 22;
+    const tilt = Math.max(-20, Math.min(20, (scrollY - lastY) * .6)); lastY = scrollY;
+    bee.style.transform = `translate(${x}px, ${y}px) rotate(${tilt}deg)`;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
+  addEventListener('resize', move); move();
+}
