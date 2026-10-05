@@ -14,6 +14,12 @@
 <meta property="og:description" content="Miel de flores cruda, de nuestras colmenas de Fuentemolinos al tarro.">
 <meta property="og:url" content="https://apirober.es/">
 <meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://apirober.es/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Apirober, miel cruda de flores de Fuentemolinos (Burgos)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -69,7 +75,21 @@
       </div>
       <div class="hero-art reveal" aria-hidden="true">
         <svg class="art-combs" viewBox="0 0 260 300"><use href="#comb"/></svg>
-        <div class="blob"><span class="shine s1"></span><span class="shine s2"></span></div>
+        <svg class="blob" viewBox="0 0 300 360">
+          <defs>
+            <clipPath id="dropClip"><path d="M150 8C96 78 30 140 30 222a120 120 0 0 0 240 0C270 140 204 78 150 8z"/></clipPath>
+            <linearGradient id="dropFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc34d"/><stop offset=".6" stop-color="#fdb12b"/><stop offset="1" stop-color="#f29a1a"/></linearGradient>
+          </defs>
+          <path d="M150 8C96 78 30 140 30 222a120 120 0 0 0 240 0C270 140 204 78 150 8z" fill="rgba(253,177,43,.14)" stroke="rgba(253,177,43,.35)" stroke-width="3"/>
+          <g clip-path="url(#dropClip)">
+            <g class="honey-level">
+              <path class="honey-wave" d="M-300 20q37.5-16 75 0t75 0 75 0 75 0 75 0 75 0 75 0 75 0 75 0 75 0 75 0 75 0V400H-300z" fill="url(#dropFill)"/>
+            </g>
+            <ellipse cx="108" cy="150" rx="11" ry="30" fill="#fff" opacity=".45" transform="rotate(28 108 150)"/>
+            <circle cx="122" cy="102" r="9" fill="#fff" opacity=".5"/>
+          </g>
+        </svg>
+        <span class="falling-drop"></span>
         <svg class="trail" viewBox="0 0 300 200"><path d="M10 180 C80 120 60 40 150 60 S260 20 290 10" fill="none" stroke="#fdb12b" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
         <img class="flying-bee" src="/assets/abeja.png?v=2" alt="" width="70" height="70">
       </div>
@@ -144,7 +164,7 @@
   </section>
 
   <!-- PROCESO -->
-  <section id="proceso" class="section dark">
+  <section id="proceso" class="section dark hex-edges">
     <svg class="combs combs-r" aria-hidden="true" viewBox="0 0 260 300"><use href="#comb"/></svg>
     <div class="wrap">
       <p class="eyebrow">Del panal al tarro</p>
@@ -205,8 +225,25 @@
         <form class="order-form" id="orderForm">
           <label class="full">Nombre<input name="nombre" required autocomplete="name"></label>
           <fieldset class="full sizes"><legend>¿Cuántos tarros?</legend>
-            <div class="sizes-row"><label>250 g<input name="t250" type="number" min="0" value="0" required></label><label>500 g<input name="t500" type="number" min="0" value="1" required></label><label>1 kg<input name="t1000" type="number" min="0" value="0" required></label></div>
-          </fieldset>
+            <div class="sizes-row">
+            <label class="size" data-size="t250">
+              <button type="button" class="jar-btn" aria-label="Añadir un tarro de 250 g"><svg viewBox="0 0 60 80" style="height:54px"><use href="#jarSym"/></svg></button>
+              <span>250 g</span>
+              <span class="stepper"><button type="button" class="minus" aria-label="Quitar un tarro de 250 g">−</button><input name="t250" type="number" min="0" value="0" required aria-label="Tarros de 250 g"><button type="button" class="plus" aria-label="Añadir un tarro de 250 g">+</button></span>
+            </label>
+            <label class="size" data-size="t500">
+              <button type="button" class="jar-btn" aria-label="Añadir un tarro de 500 g"><svg viewBox="0 0 60 80" style="height:74px"><use href="#jarSym"/></svg></button>
+              <span>500 g</span>
+              <span class="stepper"><button type="button" class="minus" aria-label="Quitar un tarro de 500 g">−</button><input name="t500" type="number" min="0" value="1" required aria-label="Tarros de 500 g"><button type="button" class="plus" aria-label="Añadir un tarro de 500 g">+</button></span>
+            </label>
+            <label class="size" data-size="t1000">
+              <button type="button" class="jar-btn" aria-label="Añadir un tarro de 1 kg"><svg viewBox="0 0 60 80" style="height:96px"><use href="#jarSym"/></svg></button>
+              <span>1 kg</span>
+              <span class="stepper"><button type="button" class="minus" aria-label="Quitar un tarro de 1 kg">−</button><input name="t1000" type="number" min="0" value="0" required aria-label="Tarros de 1 kg"><button type="button" class="plus" aria-label="Añadir un tarro de 1 kg">+</button></span>
+            </label>
+          </div>
+          <p class="hint">Toca un tarro para añadirlo.</p>
+        </fieldset>
           <button class="btn full" type="submit">Enviar pedido por correo</button>
         </form>
         <p class="small">Se abrirá tu programa de correo con el mensaje preparado.</p>
@@ -215,7 +252,7 @@
   </section>
 </main>
 
-<footer class="foot">
+<footer class="foot hex-top">
   <div class="wrap foot-in">
     <p class="brand"><img src="/assets/abeja.png?v=2" alt="" width="28" height="28"> APIROBER</p>
     <p>Miel cruda de flores · Fuentemolinos, Burgos<br>REGA ES091390000007</p>
@@ -224,6 +261,13 @@
 </footer>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="jarSym" viewBox="0 0 60 80">
+    <rect x="12" y="2" width="36" height="11" rx="3" fill="#5a3117"/>
+    <path d="M14 13h32v4c5 2 8 6 8 11v40c0 6-4 10-10 10H16c-6 0-10-4-10-10V28c0-5 3-9 8-11z" fill="#fdb12b"/>
+    <rect x="6" y="36" width="48" height="22" fill="#7a4522"/>
+    <path d="M30 31c-7 6-11 10-11 16a11 11 0 0 0 22 0c0-6-4-10-11-16z" fill="#fdb12b" stroke="#7a4522" stroke-width="1.5"/>
+    <path d="M11 24c0-3 2-6 4-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".5" fill="none"/>
+  </symbol>
   <symbol id="comb" viewBox="0 0 260 300">
     <g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round">
       <path d="M30 20l26 15v30L30 80 4 65V35z"/><path d="M82 20l26 15v30L82 80 56 65V35z"/>
@@ -235,6 +279,12 @@
     </g>
   </symbol>
 </svg>
+<div class="scroll-bee" aria-hidden="true">
+  <svg viewBox="0 0 80 1000" preserveAspectRatio="none"><path id="beePath" d="M40 0C70 120 10 220 40 330S75 540 40 660 5 880 40 1000" fill="none" stroke="#fdb12b" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+  <img src="/assets/abeja.png?v=2" alt="" width="44" height="44">
+</div>
+<!-- 7. Barra fija en móvil -->
+<div class="mobile-cta"><span>Miel cruda · Burgos</span><a class="btn btn-amber btn-sm" href="#pedidos">Pedir miel</a></div>
 <script src="/assets/main.js" defer></script>
 </body>
 </html>
