@@ -65,3 +65,27 @@ if (sb && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
   addEventListener('resize', move); move();
 }
+
+// Abeja que sigue el cursor (solo ratón): va con retraso, se orienta hacia donde vuela y revolotea al pararse
+const cb = document.querySelector('.cursor-bee');
+if (cb && matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let mx = innerWidth / 2, my = innerHeight / 2, x = mx, y = my, ang = 0, t = 0, running = false;
+  const loop = () => {
+    t += 0.08;
+    const dx = mx + 26 - x, dy = my + 22 - y;          // se queda un poco abajo a la derecha del puntero
+    x += dx * 0.09; y += dy * 0.09;
+    const speed = Math.hypot(dx, dy);
+    if (speed > 2) {                                     // la cabeza de la imagen mira arriba-derecha (-45°)
+      const target = Math.atan2(dy, dx) * 180 / Math.PI + 45;
+      ang += (((target - ang + 540) % 360) - 180) * 0.15; // gira por el camino corto
+    }
+    const hover = speed < 6 ? Math.sin(t * 2) * 4 : 0;   // revoloteo cuando está quieta
+    cb.style.transform = `translate(${x - 20}px, ${y - 20 + hover}px) rotate(${ang}deg)`;
+    requestAnimationFrame(loop);
+  };
+  addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY; cb.classList.add('on');
+    if (!running) { running = true; x = mx; y = my; loop(); }
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => cb.classList.remove('on'));
+}
