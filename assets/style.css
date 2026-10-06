@@ -291,3 +291,5 @@ html:not(.js) .honey-level{transform:translateY(22px)}
 .wa-fab.hide{opacity:0;pointer-events:none;transform:translateY(20px)}
 
 @media (max-width:820px){.wa-fab{display:none}}
+.size .price{display:block;font-size:.95rem;color:var(--brown-d)}
+.total{text-align:center;font-weight:700;margin-top:12px;color:var(--brown-d)}.total b{font-size:1.25rem}

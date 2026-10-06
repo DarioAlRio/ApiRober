@@ -17,18 +17,20 @@ document.documentElement.classList.add('js');
 document.getElementById('orderForm').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
-  const lineas = [['t250', '250 g'], ['t500', '500 g'], ['t1000', '1 kg']]
-    .filter(([k]) => +f.get(k) > 0).map(([k, t]) => `- ${f.get(k)} tarro(s) de ${t}`);
+  const lineas = [['t250', '250 g', 6], ['t500', '500 g', 9], ['t1000', '1 kg', 16]]
+    .filter(([k]) => +f.get(k) > 0).map(([k, t, p]) => `- ${f.get(k)} × tarro de ${t} (${p} €) = ${f.get(k) * p} €`);
   if (!lineas.length) { alert('Indica al menos un tarro.'); return; }
-  const body = `Hola Roberto, soy ${f.get('nombre')}.\nQuería pedir miel de flores:\n${lineas.join('\n')}\n¿Qué precio tendría?`;
+  const body = `Hola Roberto, soy ${f.get('nombre')}.\nQuería pedir miel de flores:\n${lineas.join('\n')}\nTotal: ${total()} €`;
   window.open(`https://wa.me/34657882582?text=${encodeURIComponent(body)}`, '_blank', 'noopener');
 });
 document.getElementById('y').textContent = new Date().getFullYear();
 
-// Tarros a escala: un clic en el tarro o en +/− cambia la cantidad
-document.querySelectorAll('.size').forEach(s => {
+// Tarros a escala: un clic en el tarro o en +/− cambia la cantidad y el total
+const sizes = [...document.querySelectorAll('.size')];
+const total = () => sizes.reduce((n, s) => n + (+s.querySelector('input').value || 0) * +s.dataset.price, 0);
+sizes.forEach(s => {
   const input = s.querySelector('input');
-  const sync = () => s.classList.toggle('picked', +input.value > 0);
+  const sync = () => { s.classList.toggle('picked', +input.value > 0); document.getElementById('total').textContent = `${total()} €`; };
   const add = d => {
     input.value = Math.max(0, (+input.value || 0) + d); sync();
     s.classList.remove('bump'); void s.offsetWidth; s.classList.add('bump');

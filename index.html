@@ -30,9 +30,11 @@
 {"@type":"Organization","@id":"https://apirober.es/#org","name":"Apirober","url":"https://apirober.es/","logo":"https://apirober.es/favicon.png","telephone":"+34657882582",
  "contactPoint":{"@type":"ContactPoint","name":"Roberto","telephone":"+34657882582","contactType":"sales","areaServed":"ES","availableLanguage":"es"},
  "address":{"@type":"PostalAddress","addressLocality":"Fuentemolinos","addressRegion":"Burgos","addressCountry":"ES"}},
-{"@type":"Product","name":"Miel de flores cruda Apirober (250 g, 500 g y 1 kg)","brand":{"@id":"https://apirober.es/#org"},
- "description":"Miel cruda de flores 100% española, de Fuentemolinos (Burgos). Sin pasteurizar.",
- "countryOfOrigin":"ES"}
+{"@type":"Product","@id":"https://apirober.es/#miel","name":"Miel de flores cruda Apirober","image":"https://apirober.es/assets/og.png","brand":{"@type":"Brand","name":"Apirober"},
+ "description":"Miel cruda de flores 100% española, de Fuentemolinos (Burgos). Sin pasteurizar. Tarros de 250 g, 500 g y 1 kg.",
+ "category":"Alimentación > Miel","countryOfOrigin":"ES","manufacturer":{"@id":"https://apirober.es/#org"},
+ "offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":"6.00","highPrice":"16.00","offerCount":"3","availability":"https://schema.org/InStock",
+  "offers":[{"@type":"Offer","name":"Tarro de 250 g","sku":"APR-250","price":"6.00","priceCurrency":"EUR","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://apirober.es/#pedidos","seller":{"@id":"https://apirober.es/#org"}},{"@type":"Offer","name":"Tarro de 500 g","sku":"APR-500","price":"9.00","priceCurrency":"EUR","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://apirober.es/#pedidos","seller":{"@id":"https://apirober.es/#org"}},{"@type":"Offer","name":"Tarro de 1 kg","sku":"APR-1000","price":"16.00","priceCurrency":"EUR","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition","url":"https://apirober.es/#pedidos","seller":{"@id":"https://apirober.es/#org"}}]}}
 ,
 {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mi miel se ha puesto dura, ¿está mala?","acceptedAnswer":{"@type":"Answer","text":"Al contrario: es señal de que es cruda. La miel sin calentar cristaliza de forma natural con el frío. Si la quieres líquida, pon el tarro al baño maría templado (sin pasar de 40 °C) y remueve."}},{"@type":"Question","name":"¿Por qué cada tarro puede tener un color distinto?","acceptedAnswer":{"@type":"Answer","text":"Depende de las flores de cada temporada. Es una miel natural, sin mezclar para igualarla."}},{"@type":"Question","name":"¿Cómo se conserva y cuánto dura?","acceptedAnswer":{"@type":"Answer","text":"En un sitio seco, a temperatura ambiente y con el tarro bien cerrado. No necesita nevera. La fecha de consumo preferente va indicada en cada lote."}},{"@type":"Question","name":"¿Pueden tomarla los niños?","acceptedAnswer":{"@type":"Answer","text":"Sí a partir del año. Como cualquier miel, no se recomienda a bebés menores de 12 meses."}}]}
 ]}
@@ -224,27 +226,28 @@
       <div class="order-card reveal">
         <img src="/assets/abeja.png?v=2" alt="" width="56" height="56">
         <h2>¿Quieres miel de Apirober?</h2>
-        <p>Vendemos directamente, sin intermediarios. Escríbenos con cuántos tarros quieres y te contamos el precio.</p>
+        <p>Vendemos directamente, sin intermediarios. Elige tus tarros y envía el pedido por WhatsApp: Roberto te confirma la entrega.</p>
         <form class="order-form" id="orderForm">
           <label class="full">Nombre<input name="nombre" required autocomplete="name"></label>
           <fieldset class="full sizes"><legend>¿Cuántos tarros?</legend>
             <div class="sizes-row">
-            <label class="size" data-size="t250">
+            <label class="size" data-size="t250" data-price="6">
               <button type="button" class="jar-btn" aria-label="Añadir un tarro de 250 g"><svg viewBox="0 0 60 80" style="height:54px"><use href="#jarSym"/></svg></button>
-              <span>250 g</span>
+              <span>250 g <b class="price">6 €</b></span>
               <span class="stepper"><button type="button" class="minus" aria-label="Quitar un tarro de 250 g">−</button><input name="t250" type="number" min="0" value="0" required aria-label="Tarros de 250 g"><button type="button" class="plus" aria-label="Añadir un tarro de 250 g">+</button></span>
             </label>
-            <label class="size" data-size="t500">
+            <label class="size" data-size="t500" data-price="9">
               <button type="button" class="jar-btn" aria-label="Añadir un tarro de 500 g"><svg viewBox="0 0 60 80" style="height:74px"><use href="#jarSym"/></svg></button>
-              <span>500 g</span>
+              <span>500 g <b class="price">9 €</b></span>
               <span class="stepper"><button type="button" class="minus" aria-label="Quitar un tarro de 500 g">−</button><input name="t500" type="number" min="0" value="1" required aria-label="Tarros de 500 g"><button type="button" class="plus" aria-label="Añadir un tarro de 500 g">+</button></span>
             </label>
-            <label class="size" data-size="t1000">
+            <label class="size" data-size="t1000" data-price="16">
               <button type="button" class="jar-btn" aria-label="Añadir un tarro de 1 kg"><svg viewBox="0 0 60 80" style="height:96px"><use href="#jarSym"/></svg></button>
-              <span>1 kg</span>
+              <span>1 kg <b class="price">16 €</b></span>
               <span class="stepper"><button type="button" class="minus" aria-label="Quitar un tarro de 1 kg">−</button><input name="t1000" type="number" min="0" value="0" required aria-label="Tarros de 1 kg"><button type="button" class="plus" aria-label="Añadir un tarro de 1 kg">+</button></span>
             </label>
           </div>
+          <p class="total" aria-live="polite">Total: <b id="total">9 €</b></p>
           <p class="hint">Toca un tarro para añadirlo.</p>
         </fieldset>
           <button class="btn full" type="submit">Enviar pedido por WhatsApp</button>
