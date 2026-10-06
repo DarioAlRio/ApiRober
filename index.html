@@ -105,22 +105,29 @@
       <figure class="jar reveal" aria-hidden="true">
         <svg viewBox="0 0 320 400">
           <defs>
-            <linearGradient id="honey" x1="0" x2="1"><stop offset="0" stop-color="#e88a0c"/><stop offset=".45" stop-color="#fdb12b"/><stop offset="1" stop-color="#d97c08"/></linearGradient>
             <linearGradient id="lid" x1="0" x2="1"><stop offset="0" stop-color="#5a3117"/><stop offset=".5" stop-color="#8a5229"/><stop offset="1" stop-color="#5a3117"/></linearGradient>
+            <linearGradient id="front" x1="0" x2="1"><stop offset="0" stop-color="#f6a51f"/><stop offset=".5" stop-color="#ffbf45"/><stop offset="1" stop-color="#f29a1a"/></linearGradient>
           </defs>
-          <ellipse cx="160" cy="382" rx="120" ry="12" fill="#7a4522" opacity=".18"/>
-          <rect x="62" y="40" width="196" height="54" rx="12" fill="url(#lid)"/>
-          <path d="M70 54h180M70 66h180M70 78h180" stroke="#5a3117" stroke-width="2" opacity=".5"/>
-          <path d="M74 94h172v18c22 8 34 26 34 50v170c0 28-20 44-48 44H88c-28 0-48-16-48-44V162c0-24 12-42 34-50z" fill="url(#honey)"/>
-          <path d="M60 170c0-18 8-30 22-36" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".45" fill="none"/>
-          <path d="M58 200v110" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".3"/>
-          <rect x="40" y="190" width="240" height="110" fill="#7a4522"/>
-          <g fill="none" stroke="#fdb12b" stroke-width="3" opacity=".9"><path d="M52 205l9 5v10l-9 5-9-5v-10zM70 215l9 5v10l-9 5-9-5v-10zM52 225l9 5v10l-9 5-9-5v-10zM268 260l9 5v10l-9 5-9-5v-10zM250 270l9 5v10l-9 5-9-5v-10zM268 280l9 5v10l-9 5-9-5v-10z"/></g>
-          <path d="M160 132c-46 34-74 62-74 98a74 74 0 0 0 148 0c0-36-28-64-74-98z" fill="#fdb12b" stroke="#7a4522" stroke-width="7"/>
-          <image href="/assets/abeja.png?v=2" x="144" y="176" width="32" height="32"/>
-          <text x="160" y="232" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="12" fill="#7a4522">APIROBER</text>
-          <text x="160" y="254" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="13.5" fill="#7a4522">MIEL DE FLORES</text>
-          <text x="160" y="272" text-anchor="middle" font-family="Montserrat" font-weight="500" font-size="11" fill="#7a4522">MIEL CRUDA</text>
+          <ellipse cx="160" cy="372" rx="126" ry="11" fill="#7a4522" opacity=".18"/>
+          <rect x="78" y="62" width="164" height="40" rx="7" fill="url(#lid)"/>
+          <path d="M84 74h152M84 84h152M84 94h152" stroke="#4a2810" stroke-width="2" opacity=".45"/>
+          <path d="M88 102h144l-8 14H96z" fill="#ffbf45"/>
+          <path d="M88 102l8 14-44 12 8-16z" fill="#e8900f"/>
+          <path d="M232 102l28 10 8 16-44-12z" fill="#cf7406"/>
+          <path d="M96 116h128v246H96z" fill="url(#front)"/>
+          <path d="M52 128l44-12v246l-44-12z" fill="#e08a0c"/>
+          <path d="M224 116l44 12v222l-44 12z" fill="#cf7406"/>
+          <path d="M96 176h128v128H96z" fill="#7a4522"/>
+          <path d="M52 186l44-10v128l-44-10z" fill="#6a3a1b"/>
+          <path d="M224 176l44 10v108l-44 10z" fill="#5a3117"/>
+          <g fill="none" stroke="#fdb12b" stroke-width="2.5" opacity=".85"><path d="M66 200l7 4v8l-7 4-7-4v-8zM80 208l7 4v8l-7 4-7-4v-8zM66 216l7 4v8l-7 4-7-4v-8zM252 250l7 4v8l-7 4-7-4v-8zM240 264l7 4v8l-7 4-7-4v-8z"/></g>
+          <path d="M160 140c-40 30-62 52-62 84a62 62 0 0 0 124 0c0-32-22-54-62-84z" fill="#fdb12b" stroke="#7a4522" stroke-width="6"/>
+          <image href="/assets/abeja-sola.png" x="146" y="176" width="28" height="28"/>
+          <text x="160" y="224" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="11" fill="#7a4522">APIROBER</text>
+          <text x="160" y="242" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="12" fill="#7a4522">MIEL DE FLORES</text>
+          <text x="160" y="258" text-anchor="middle" font-family="Montserrat" font-weight="500" font-size="9" fill="#7a4522">MIEL CRUDA</text>
+          <path d="M108 128v36M108 316v34" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".4"/>
+          <path d="M64 140v30" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".25"/>
         </svg>
       </figure>
       <div class="reveal">
@@ -264,11 +271,18 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="jarSym" viewBox="0 0 60 80">
-    <rect x="12" y="2" width="36" height="11" rx="3" fill="#5a3117"/>
-    <path d="M14 13h32v4c5 2 8 6 8 11v40c0 6-4 10-10 10H16c-6 0-10-4-10-10V28c0-5 3-9 8-11z" fill="#fdb12b"/>
-    <rect x="6" y="36" width="48" height="22" fill="#7a4522"/>
-    <path d="M30 31c-7 6-11 10-11 16a11 11 0 0 0 22 0c0-6-4-10-11-16z" fill="#fdb12b" stroke="#7a4522" stroke-width="1.5"/>
-    <path d="M11 24c0-3 2-6 4-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".5" fill="none"/>
+    <rect x="13" y="10" width="34" height="9" rx="2" fill="#5a3117"/>
+    <path d="M15 19h30l-2 3H17z" fill="#ffbf45"/>
+    <path d="M15 19l2 3-10 3 2-4z" fill="#e8900f"/>
+    <path d="M45 19l6 2 2 4-10-3z" fill="#cf7406"/>
+    <path d="M17 22h26v56H17z" fill="#fdb12b"/>
+    <path d="M7 25l10-3v56l-10-3z" fill="#e08a0c"/>
+    <path d="M43 22l10 3v50l-10 3z" fill="#cf7406"/>
+    <path d="M17 36h26v28H17z" fill="#7a4522"/>
+    <path d="M7 38l10-2v28l-10-2z" fill="#6a3a1b"/>
+    <path d="M43 36l10 2v24l-10 2z" fill="#5a3117"/>
+    <path d="M30 33c-7 6-10 9-10 14a10 10 0 0 0 20 0c0-5-3-8-10-14z" fill="#fdb12b" stroke="#7a4522" stroke-width="1.5"/>
+    <path d="M20 25v7M20 68v7" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".45"/>
   </symbol>
   <symbol id="comb" viewBox="0 0 260 300">
     <g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round">
