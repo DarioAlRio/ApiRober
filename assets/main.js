@@ -21,7 +21,7 @@ document.getElementById('orderForm').addEventListener('submit', e => {
     .filter(([k]) => +f.get(k) > 0).map(([k, t]) => `- ${f.get(k)} tarro(s) de ${t}`);
   if (!lineas.length) { alert('Indica al menos un tarro.'); return; }
   const body = `Hola Roberto, soy ${f.get('nombre')}.\nQuería pedir miel de flores:\n${lineas.join('\n')}\n¿Qué precio tendría?`;
-  window.open(`https://wa.me/34657882581?text=${encodeURIComponent(body)}`, '_blank', 'noopener');
+  window.open(`https://wa.me/34657882582?text=${encodeURIComponent(body)}`, '_blank', 'noopener');
 });
 document.getElementById('y').textContent = new Date().getFullYear();
 
