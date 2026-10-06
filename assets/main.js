@@ -39,10 +39,11 @@ document.querySelectorAll('.size').forEach(s => {
   input.addEventListener('input', sync); sync();
 });
 
-// Barra de pedido en móvil: se oculta al llegar al formulario
+// Barra de WhatsApp (móvil) y botón flotante (escritorio): se ocultan al llegar al formulario
 const cta = document.querySelector('.mobile-cta'), pedidos = document.getElementById('pedidos');
 if (cta && 'IntersectionObserver' in window) {
-  new IntersectionObserver(([e]) => cta.classList.toggle('hide', e.isIntersecting), { threshold: .1 }).observe(pedidos);
+  const fab = document.querySelector('.wa-fab');
+  new IntersectionObserver(([e]) => { cta.classList.toggle('hide', e.isIntersecting); fab && fab.classList.toggle('hide', e.isIntersecting); }, { threshold: .1 }).observe(pedidos);
 }
 
 // Abeja del scroll: sale de la colmena (arriba), recorre la línea de puntos y se posa en la flor (abajo)
