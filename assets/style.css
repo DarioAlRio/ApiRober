@@ -283,7 +283,7 @@ html:not(.js) .honey-level{transform:translateY(22px)}
 }
 /* WhatsApp: barra en móvil y botón flotante en escritorio */
 .wa-btn{display:inline-flex;align-items:center;gap:6px}.wa-btn svg{width:18px;height:18px}
-.wa-fab{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:center;gap:0;height:56px;padding:0 14px;border-radius:999px;
+.wa-fab{position:fixed;left:24px;bottom:24px;z-index:60;display:flex;align-items:center;gap:0;height:56px;padding:0 14px;border-radius:999px;
   background:#25d366;color:#fff;text-decoration:none;font-weight:800;font-size:.9rem;box-shadow:0 12px 28px -8px rgba(0,0,0,.45);
   transition:gap .25s,padding .25s,transform .25s,opacity .3s}
 .wa-fab svg{width:28px;height:28px;flex:none}
@@ -291,5 +291,5 @@ html:not(.js) .honey-level{transform:translateY(22px)}
 .wa-fab:hover,.wa-fab:focus-visible{gap:8px;padding:0 20px 0 16px;transform:translateY(-2px)}
 .wa-fab:hover span,.wa-fab:focus-visible span{max-width:120px}
 .wa-fab.hide{opacity:0;pointer-events:none;transform:translateY(20px)}
-@media (min-width:1101px){.wa-fab{right:96px}}
+
 @media (max-width:820px){.wa-fab{display:none}}
