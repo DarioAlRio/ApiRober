@@ -13,15 +13,15 @@ const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es
 document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 document.documentElement.classList.add('js');
 
-// Pedido por correo
+// Pedido por WhatsApp a Roberto
 document.getElementById('orderForm').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
   const lineas = [['t250', '250 g'], ['t500', '500 g'], ['t1000', '1 kg']]
     .filter(([k]) => +f.get(k) > 0).map(([k, t]) => `- ${f.get(k)} tarro(s) de ${t}`);
   if (!lineas.length) { alert('Indica al menos un tarro.'); return; }
-  const body = `Hola, soy ${f.get('nombre')}.\nQuería pedir miel de flores:\n${lineas.join('\n')}\n¿Qué precio tendría?`;
-  location.href = `mailto:info@apirober.es?subject=${encodeURIComponent('Pedido de miel')}&body=${encodeURIComponent(body)}`;
+  const body = `Hola Roberto, soy ${f.get('nombre')}.\nQuería pedir miel de flores:\n${lineas.join('\n')}\n¿Qué precio tendría?`;
+  window.open(`https://wa.me/346577882581?text=${encodeURIComponent(body)}`, '_blank', 'noopener');
 });
 document.getElementById('y').textContent = new Date().getFullYear();
 
