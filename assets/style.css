@@ -76,8 +76,7 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
 .facts div{background:var(--card);border-radius:16px;padding:16px 18px;border-left:5px solid var(--amber)}
 .facts dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--accent)}
 .facts dd{font-weight:800;color:var(--head);overflow-wrap:anywhere}
-.facts .wide{grid-column:1/-1}
-.facts dd.nw{overflow-wrap:normal}
+.facts dd.fit{white-space:nowrap;overflow-wrap:normal;font-size:clamp(.78rem,3.6vw,.92rem);letter-spacing:-.01em}
 .map{position:relative}
 .map svg{width:100%;border-radius:28px;box-shadow:0 30px 60px -30px rgba(90,49,23,.8)}
 .map figcaption{position:absolute;left:24px;bottom:22px;color:var(--amber);font-size:.85rem;letter-spacing:.06em}
@@ -117,6 +116,7 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
   .order-card{padding:40px 22px}
   .order-form{grid-template-columns:1fr}
   .facts{grid-template-columns:1fr}
+  .facts dd.fit{font-size:inherit;letter-spacing:0}
 }
 .flying-bee{padding:0!important;background:none!important;border-radius:0!important}
 
