@@ -45,22 +45,31 @@ if (cta && 'IntersectionObserver' in window) {
   new IntersectionObserver(([e]) => cta.classList.toggle('hide', e.isIntersecting), { threshold: .1 }).observe(pedidos);
 }
 
-// Abeja que recorre la línea de puntos según el scroll
+// Abeja del scroll: sale de la colmena (arriba), recorre la línea de puntos y se posa en la flor (abajo)
 const sb = document.querySelector('.scroll-bee');
 if (sb && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const path = sb.querySelector('path'), bee = sb.querySelector('img'), svg = sb.querySelector('svg');
+  const path = sb.querySelector('.trail path'), trail = sb.querySelector('.trail'), bee = sb.querySelector('.sbee');
   const len = path.getTotalLength();
-  let ticking = false, lastY = 0;
+  let ticking = false, lastY = scrollY;
+  const ease = (v) => Math.min(1, Math.max(0, v));
   const move = () => {
     ticking = false;
     const max = document.documentElement.scrollHeight - innerHeight;
-    const p = max > 0 ? scrollY / max : 0;
-    sb.classList.toggle('on', scrollY > innerHeight * .6);
+    const p = max > 0 ? Math.min(1, scrollY / max) : 0;
     const pt = path.getPointAtLength(p * len);
-    const r = svg.getBoundingClientRect();
-    const x = pt.x / 80 * r.width - 22, y = pt.y / 1000 * r.height - 22;
-    const tilt = Math.max(-20, Math.min(20, (scrollY - lastY) * .6)); lastY = scrollY;
-    bee.style.transform = `translate(${x}px, ${y}px) rotate(${tilt}deg)`;
+    const box = sb.getBoundingClientRect(), r = trail.getBoundingClientRect();
+    let x = r.left - box.left + pt.x / 80 * r.width - 20;
+    let y = r.top - box.top + pt.y / 1000 * r.height - 20;
+    let scale = 1, rot = Math.max(-25, Math.min(25, (scrollY - lastY) * .8));
+    lastY = scrollY;
+    const enter = ease(p / .05);              // 0 = dentro de la colmena, 1 = ya volando
+    if (enter < 1) { scale = .25 + .75 * enter; y -= (1 - enter) * 22; rot = 0; }
+    const landed = p > .985;
+    if (landed) rot = -10;
+    sb.classList.toggle('home', enter === 0);
+    sb.classList.toggle('landed', landed);
+    bee.style.opacity = enter === 0 ? 0 : 1;
+    bee.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg) scale(${scale})`;
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
   addEventListener('resize', move); move();

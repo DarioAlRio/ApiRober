@@ -157,11 +157,17 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
 .hero-art.in .falling-drop{animation:drip 3.5s ease-in 3.6s infinite}
 @keyframes drip{0%{opacity:0;transform:translateY(-14px) scale(.4)}15%{opacity:1;transform:translateY(-6px) scale(1)}35%{transform:translateY(-6px) scaleY(1.25)}70%{opacity:1;transform:translateY(90px)}75%,100%{opacity:0;transform:translateY(96px) scale(1.4,.3)}}
 
-/* 6. Abeja que sigue el scroll */
-.scroll-bee{position:fixed;right:18px;top:90px;bottom:30px;width:56px;z-index:40;pointer-events:none;opacity:0;transition:opacity .4s}
-.scroll-bee.on{opacity:1}
-.scroll-bee svg{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
-.scroll-bee img{position:absolute;left:0;top:0;width:44px;height:44px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.25));will-change:transform}
+/* 6. Abeja del scroll: colmena arriba, flor abajo */
+.scroll-bee{position:fixed;right:14px;top:78px;bottom:14px;width:64px;z-index:40;pointer-events:none}
+.scroll-bee .hive{position:absolute;left:0;top:0;width:64px;height:64px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.2));transform-origin:50% 100%}
+.scroll-bee.home .hive{animation:hum 1.6s ease-in-out infinite}
+@keyframes hum{50%{transform:scale(1.04,.97)}}
+.scroll-bee .trail{position:absolute;left:0;right:0;top:62px;bottom:52px;width:100%;height:calc(100% - 114px);opacity:.55}
+.scroll-bee .flower{position:absolute;left:0;bottom:0;width:64px;height:80px;transform-origin:50% 100%;transition:transform .5s}
+.scroll-bee.landed .flower{animation:sway 2.4s ease-in-out infinite}
+@keyframes sway{25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+.scroll-bee .sbee{position:absolute;left:0;top:0;width:40px;height:40px;will-change:transform;transition:opacity .25s;
+  filter:drop-shadow(1.5px 0 0 #fdb12b) drop-shadow(-1.5px 0 0 #fdb12b) drop-shadow(0 1.5px 0 #fdb12b) drop-shadow(0 -1.5px 0 #fdb12b) drop-shadow(0 5px 5px rgba(0,0,0,.25))}
 @media (max-width:1100px){.scroll-bee{display:none}}
 
 /* 7. Barra fija en móvil */
@@ -231,7 +237,7 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
   :root[data-theme="dark"] .jar svg{filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
   :root[data-theme="dark"] .drip path{fill:var(--brown)}
 :root[data-theme="dark"]{color-scheme:dark}:root[data-theme="light"]{color-scheme:light}
-@media (prefers-reduced-motion:reduce){.honey-level{transform:translateY(22px)!important}.falling-drop,.scroll-bee{display:none}}
+@media (prefers-reduced-motion:reduce){.honey-level{transform:translateY(22px)!important}.falling-drop,.scroll-bee .sbee,.scroll-bee .trail{display:none}}
 html:not(.js) .honey-level{transform:translateY(22px)}
 .order-form input{color:#3b2210}
 .mobile-cta span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mobile-cta .btn{flex:none}
