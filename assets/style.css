@@ -3,7 +3,7 @@
   --ink:#3b2210; --radius:22px; --wrap:1120px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;background:var(--brown)}
 body{font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;overflow-x:hidden}
 img,svg{display:block;max-width:100%}
 a{color:inherit}
@@ -177,7 +177,7 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
     background:var(--brown);color:#f8e6cc;border-radius:999px;padding:8px 8px 8px 20px;font-weight:700;font-size:.85rem;
     box-shadow:0 14px 30px -10px rgba(0,0,0,.5);transition:transform .35s,opacity .35s}
   .mobile-cta.hide{transform:translateY(130%);opacity:0}
-  body{padding-bottom:76px}
+  .foot{padding-bottom:100px}
 }
 
 /* 8. Tarros a escala */
