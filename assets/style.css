@@ -147,7 +147,7 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.05;letter-sp
 
 /* ===== v3 ===== */
 /* 5. Gota que se rellena */
-.blob{position:absolute;right:8%;top:10px;width:300px;height:360px;filter:drop-shadow(0 40px 50px rgba(0,0,0,.35));overflow:visible}
+.blob{position:absolute;right:8%;top:10px;width:300px;height:360px;transform:rotate(-10deg);transform-origin:50% 94%;filter:drop-shadow(0 40px 50px rgba(0,0,0,.35));overflow:visible}
 .honey-level{transform:translateY(360px)}
 .hero-art.in .honey-level{animation:fill 3.2s cubic-bezier(.3,.6,.3,1) .3s forwards}
 .honey-wave{animation:wave 3s linear infinite}
