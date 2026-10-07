@@ -36,7 +36,9 @@ document.getElementById('orderForm').addEventListener('submit', e => {
 const enviar = () => window.open(`https://wa.me/34657882582?text=${encodeURIComponent(waBody)}`, '_blank', 'noopener');
 document.getElementById('resumenOk').addEventListener('click', () => {
   dlg.close(); enviar();
-  const g = document.getElementById('gracias'); g.hidden = false; g.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  const g = document.getElementById('gracias');
+  clearTimeout(g.t); g.classList.remove('out'); g.hidden = false;
+  g.t = setTimeout(() => { g.classList.add('out'); g.t = setTimeout(() => { g.hidden = true; }, 400); }, 6000);
 });
 document.getElementById('resumenEditar').addEventListener('click', () => dlg.close());document.getElementById('y').textContent = new Date().getFullYear();
 
