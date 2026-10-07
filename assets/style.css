@@ -340,10 +340,11 @@ h2 .hand{color:var(--accent)}
 @media (max-width:400px){.badge{font-size:.55rem;padding:3px 6px}}
 
 /* 4. Gotas de miel que escurren del bloque marrón */
-.drips{position:absolute;left:0;right:0;bottom:-34px;height:0;z-index:3;pointer-events:none}
-.drips svg{position:absolute;top:-2px;width:28px;fill:var(--brown);transform-origin:50% 0;animation:ooze 6s ease-in-out infinite}
-.drips .d1{left:8%;width:22px;animation-delay:-1s}.drips .d2{left:27%;width:30px;animation-delay:-3s}.drips .d3{left:51%;width:20px;animation-delay:-2s}
-.drips .d4{left:73%;width:26px;animation-delay:-4s}.drips .d5{left:90%;width:18px;animation-delay:-.5s}
+.drips{position:absolute;left:0;right:0;bottom:-34px;height:0;overflow:visible;z-index:3;pointer-events:none}
+.drips svg{position:absolute;top:-1px;width:20px;height:34px;fill:var(--brown);transform-origin:50% 0;animation:ooze 6s ease-in-out infinite}
+/* cada gota cuelga de la base plana de un diente (patrón de 60px, base de x=10 a x=30) */
+.drips .d1{left:70px;animation-delay:-1s}.drips .d2{left:310px;animation-delay:-3s}.drips .d3{left:610px;animation-delay:-2s}
+.drips .d4{left:910px;animation-delay:-4s}.drips .d5{left:1210px;animation-delay:-.5s}
 @keyframes ooze{50%{transform:scaleY(1.35)}}
 @media (prefers-reduced-motion:reduce){.drips svg{animation:none}}
 
