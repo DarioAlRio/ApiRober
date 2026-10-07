@@ -13,17 +13,29 @@ const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es
 document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 document.documentElement.classList.add('js');
 
-// Pedido por WhatsApp a Roberto
+// Pedido por WhatsApp a Roberto: primero un resumen para confirmar
+const dlg = document.getElementById('resumen');
+let waBody = '';
 document.getElementById('orderForm').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
-  const lineas = [['t250', '250 g', 6], ['t500', '500 g', 9], ['t1000', '1 kg', 16]]
-    .filter(([k]) => +f.get(k) > 0).map(([k, t, p]) => `- ${f.get(k)} × tarro de ${t} (${p} €) = ${f.get(k) * p} €`);
-  if (!lineas.length) { alert('Indica al menos un tarro.'); return; }
-  const body = `Hola Roberto, soy ${f.get('nombre')}.\nQuería pedir miel de flores:\n${lineas.join('\n')}\nTotal: ${total()} €`;
-  window.open(`https://wa.me/34657882582?text=${encodeURIComponent(body)}`, '_blank', 'noopener');
+  const items = [['t250', '250 g', 6], ['t500', '500 g', 9], ['t1000', '1 kg', 16]]
+    .filter(([k]) => +f.get(k) > 0).map(([k, t, p]) => ({ n: +f.get(k), t, p }));
+  if (!items.length) { alert('Indica al menos un tarro.'); return; }
+  const tarros = items.reduce((a, i) => a + i.n, 0);
+  waBody = `Hola Roberto, soy ${f.get('nombre')}.\nQuería pedir miel de flores:\n${items.map(i => `- ${i.n} × tarro de ${i.t} (${i.p} €) = ${i.n * i.p} €`).join('\n')}\nTotal: ${total()} €`;
+  const lista = document.getElementById('resumenLista');
+  lista.replaceChildren(...items.map(i => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span>${i.n} × tarro de ${i.t}</span><b>${i.n * i.p} €</b>`;
+    return li;
+  }));
+  document.getElementById('resumenTotal').innerHTML = `<span>${tarros} ${tarros === 1 ? 'tarro' : 'tarros'}</span><span>${total()} €</span>`;
+  if (dlg.showModal) dlg.showModal(); else if (confirm(`${tarros} tarros · ${total()} € · ¿Confirmar?`)) enviar();
 });
-document.getElementById('y').textContent = new Date().getFullYear();
+const enviar = () => window.open(`https://wa.me/34657882582?text=${encodeURIComponent(waBody)}`, '_blank', 'noopener');
+document.getElementById('resumenOk').addEventListener('click', () => { dlg.close(); enviar(); });
+document.getElementById('resumenEditar').addEventListener('click', () => dlg.close());document.getElementById('y').textContent = new Date().getFullYear();
 
 // Tarros a escala: un clic en el tarro o en +/− cambia la cantidad y el total
 const sizes = [...document.querySelectorAll('.size')];

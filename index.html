@@ -252,6 +252,16 @@
         </fieldset>
           <button class="btn full" type="submit">Enviar pedido por WhatsApp</button>
         </form>
+        <dialog class="resumen" id="resumen" aria-labelledby="resumenTit">
+          <h3 id="resumenTit">Revisa tu pedido</h3>
+          <ul id="resumenLista"></ul>
+          <p class="resumen-total" id="resumenTotal"></p>
+          <p class="small">Se abrirá WhatsApp con este pedido para Roberto.</p>
+          <div class="resumen-btns">
+            <button type="button" class="btn btn-ghost" id="resumenEditar">Cambiar</button>
+            <button type="button" class="btn" id="resumenOk" autofocus>Confirmar y enviar</button>
+          </div>
+        </dialog>
         <p class="small">Se abrirá WhatsApp con el mensaje preparado para Roberto. También puedes llamarle al <a href="tel:+34657882582">+34 657 88 25 82</a>.</p>
       </div>
     </div>
