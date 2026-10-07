@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada · Apirober</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png?v=9" type="image/png">
+<meta name="theme-color" content="#7a4522">
+<script>(function(){try{var tema=localStorage.getItem("tema");if(tema)document.documentElement.dataset.theme=tema}catch(e){}})()</script>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@500;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .lost{min-height:100vh;display:grid;place-items:center;text-align:center;padding:40px 20px;background:var(--brown);color:#f8e6cc;overflow:hidden;position:relative}
+  .lost h1{font-size:clamp(4rem,16vw,9rem);font-weight:900;color:var(--amber);line-height:1;letter-spacing:-.04em}
+  .lost h2{color:#fff;margin:6px 0 10px}
+  .lost p{max-width:420px;margin:0 auto 28px}
+  .lost-bee{width:90px;margin:0 auto 10px;animation:lost 6s ease-in-out infinite;filter:drop-shadow(2px 0 0 #fdb12b) drop-shadow(-2px 0 0 #fdb12b) drop-shadow(0 2px 0 #fdb12b) drop-shadow(0 -2px 0 #fdb12b) drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+  .lost h2 .hand{color:var(--amber)}
+  @keyframes lost{0%,100%{translate:-60px 0;rotate:-20deg}25%{translate:0 -24px;rotate:15deg}50%{translate:60px 0;rotate:40deg}75%{translate:0 18px;rotate:-10deg}}
+  .lost .trailx{position:absolute;inset:auto 0 12% 0;opacity:.35}
+</style>
+</head>
+<body>
+<main class="lost">
+  <div>
+    <img class="lost-bee" src="/assets/abeja-sola.png" alt="" width="90" height="90">
+    <h1>404</h1>
+    <h2>Esta abeja se ha <span class="hand">perdido</span></h2>
+    <p>La página que buscas no existe o ha cambiado de sitio. Vuelve a la colmena, que allí está toda la miel.</p>
+    <a class="btn btn-amber" href="/">Volver a la colmena</a>
+  </div>
+</main>
+</body>
+</html>

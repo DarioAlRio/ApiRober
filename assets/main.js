@@ -34,7 +34,10 @@ document.getElementById('orderForm').addEventListener('submit', e => {
   if (dlg.showModal) dlg.showModal(); else if (confirm(`${tarros} tarros · ${total()} € · ¿Confirmar?`)) enviar();
 });
 const enviar = () => window.open(`https://wa.me/34657882582?text=${encodeURIComponent(waBody)}`, '_blank', 'noopener');
-document.getElementById('resumenOk').addEventListener('click', () => { dlg.close(); enviar(); });
+document.getElementById('resumenOk').addEventListener('click', () => {
+  dlg.close(); enviar();
+  const g = document.getElementById('gracias'); g.hidden = false; g.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+});
 document.getElementById('resumenEditar').addEventListener('click', () => dlg.close());document.getElementById('y').textContent = new Date().getFullYear();
 
 // Tarros a escala: un clic en el tarro o en +/− cambia la cantidad y el total

@@ -14,23 +14,23 @@
 <meta property="og:description" content="Miel de flores cruda, de nuestras colmenas de Fuentemolinos al tarro.">
 <meta property="og:url" content="https://apirober.es/">
 <meta property="og:locale" content="es_ES">
-<meta property="og:image" content="https://apirober.es/assets/og.png">
+<meta property="og:image" content="https://apirober.es/assets/og.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Apirober, miel cruda de flores de Fuentemolinos (Burgos)">
+<meta property="og:image:alt" content="Apirober, miel cruda de Burgos: tarros de 250 g a 6 €, 500 g a 9 € y 1 kg a 16 €">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="color-scheme" content="light dark">
 <script>(function(){try{var tema=localStorage.getItem("tema");if(tema)document.documentElement.dataset.theme=tema}catch(e){}})()</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://apirober.es/#org","name":"Apirober","url":"https://apirober.es/","logo":"https://apirober.es/favicon.png","telephone":"+34657882582",
  "contactPoint":{"@type":"ContactPoint","name":"Roberto","telephone":"+34657882582","contactType":"sales","areaServed":"ES","availableLanguage":"es"},
  "address":{"@type":"PostalAddress","addressLocality":"Fuentemolinos","addressRegion":"Burgos","addressCountry":"ES"}},
-{"@type":"Product","@id":"https://apirober.es/#miel","name":"Miel de flores cruda Apirober","image":"https://apirober.es/assets/og.png","brand":{"@type":"Brand","name":"Apirober"},
+{"@type":"Product","@id":"https://apirober.es/#miel","name":"Miel de flores cruda Apirober","image":"https://apirober.es/assets/og.png?v=2","brand":{"@type":"Brand","name":"Apirober"},
  "description":"Miel cruda de flores 100% española, de Fuentemolinos (Burgos). Sin pasteurizar. Tarros de 250 g, 500 g y 1 kg.",
  "category":"Alimentación > Miel","countryOfOrigin":"ES","manufacturer":{"@id":"https://apirober.es/#org"},
  "offers":{"@type":"AggregateOffer","priceCurrency":"EUR","lowPrice":"6.00","highPrice":"16.00","offerCount":"3","availability":"https://schema.org/InStock",
@@ -68,8 +68,9 @@
     <div class="wrap hero-in">
       <div class="hero-copy reveal">
         <p class="eyebrow">Fuentemolinos · Burgos</p>
-        <h1>Miel cruda,<br><span class="nw">como la hacen</span><br>las abejas.</h1>
+        <h1>Miel cruda,<br><span class="nw hand">como la hacen</span><br>las abejas.</h1>
         <p class="hero-lead">Miel de flores de nuestras colmenas en la Ribera burgalesa. Sin calentar, sin mezclas, 100% española.</p>
+        <p class="from">Desde <b>6 €</b> el tarro · directo del apicultor</p>
         <div class="ctas">
           <a class="btn btn-amber" href="#pedidos">Quiero un tarro</a>
           <a class="btn btn-ghost-light" href="#miel">Conocer la miel</a>
@@ -109,12 +110,14 @@
         <svg viewBox="0 0 320 400">
           <defs>
             <linearGradient id="honey" x1="0" x2="1"><stop offset="0" stop-color="#e88a0c"/><stop offset=".45" stop-color="#fdb12b"/><stop offset="1" stop-color="#d97c08"/></linearGradient>
+            <clipPath id="jarFillClip"><rect class="jar-level" x="0" y="94" width="320" height="300"/></clipPath>
             <linearGradient id="lid" x1="0" x2="1"><stop offset="0" stop-color="#5a3117"/><stop offset=".5" stop-color="#8a5229"/><stop offset="1" stop-color="#5a3117"/></linearGradient>
           </defs>
           <ellipse cx="160" cy="382" rx="120" ry="12" fill="#7a4522" opacity=".18"/>
           <rect x="62" y="40" width="196" height="54" rx="12" fill="url(#lid)"/>
           <path d="M70 54h180M70 66h180M70 78h180" stroke="#5a3117" stroke-width="2" opacity=".5"/>
-          <path d="M74 94h172v18c22 8 34 26 34 50v170c0 28-20 44-48 44H88c-28 0-48-16-48-44V162c0-24 12-42 34-50z" fill="url(#honey)"/>
+          <path d="M74 94h172v18c22 8 34 26 34 50v170c0 28-20 44-48 44H88c-28 0-48-16-48-44V162c0-24 12-42 34-50z" fill="rgba(253,177,43,.16)" stroke="rgba(122,69,34,.35)" stroke-width="3"/>
+          <path clip-path="url(#jarFillClip)" d="M74 94h172v18c22 8 34 26 34 50v170c0 28-20 44-48 44H88c-28 0-48-16-48-44V162c0-24 12-42 34-50z" fill="url(#honey)"/>
           <path d="M60 170c0-18 8-30 22-36" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".45" fill="none"/>
           <path d="M58 200v110" stroke="#fff" stroke-width="9" stroke-linecap="round" opacity=".3"/>
           <rect x="40" y="190" width="240" height="110" fill="#7a4522"/>
@@ -128,7 +131,7 @@
       </figure>
       <div class="reveal">
         <p class="eyebrow">El tarro</p>
-        <h2>Miel de flores cruda</h2>
+        <h2>Miel de flores <span class="hand">cruda</span></h2>
         <p class="lead">Una sola miel, en tres tamaños. Miel multifloral de la cosecha de este año, envasada a mano en Fuentemolinos en tarro de vidrio.</p>
         <ul class="spec">
           <li><span>Tipo</span><b>Miel cruda multifloral</b></li>
@@ -168,6 +171,26 @@
     </div>
   </section>
 
+  <!-- COMPARATIVA -->
+  <section class="section compare" id="comparativa">
+    <div class="wrap narrow">
+      <p class="eyebrow">La diferencia</p>
+      <h2>Miel cruda <span class="hand">vs.</span> miel de supermercado</h2>
+      <div class="cmp-wrap reveal">
+        <table class="cmp">
+          <thead><tr><th scope="col"><span class="sr">Aspecto</span></th><th scope="col">Apirober</th><th scope="col">Miel industrial habitual</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Calor</th><td>Nunca por encima de 40 °C</td><td>Suele calentarse o pasteurizarse para que no cristalice</td></tr>
+            <tr><th scope="row">Origen</th><td>Una sola procedencia: Fuentemolinos</td><td>A menudo «mezcla de mieles UE y no UE»</td></tr>
+            <tr><th scope="row">Cristalización</th><td>Cristaliza con el frío, de forma natural</td><td>Tarda mucho más o no cristaliza</td></tr>
+            <tr><th scope="row">Aroma</th><td>Conserva el de las flores del monte</td><td>Más plano y uniforme</td></tr>
+            <tr><th scope="row">Quién te la vende</th><td>El propio apicultor</td><td>Envasadoras e intermediarios</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESO -->
   <section id="proceso" class="section dark hex-edges">
     <svg class="combs combs-r" aria-hidden="true" viewBox="0 0 260 300"><use href="#comb"/></svg>
@@ -181,6 +204,25 @@
         <li class="reveal"><span>04</span><h3>Envasado propio</h3><p>Envasamos a mano en tarro de vidrio, etiquetado y con número de lote en origen.</p></li>
       </ol>
     </div>
+    <div class="drips" aria-hidden="true"><svg class="d1" viewBox="0 0 40 56"><path d="M10 0h20v8c0 14 6 20 6 30a16 16 0 0 1-32 0c0-10 6-16 6-30z"/></svg><svg class="d2" viewBox="0 0 40 56"><path d="M10 0h20v8c0 14 6 20 6 30a16 16 0 0 1-32 0c0-10 6-16 6-30z"/></svg><svg class="d3" viewBox="0 0 40 56"><path d="M10 0h20v8c0 14 6 20 6 30a16 16 0 0 1-32 0c0-10 6-16 6-30z"/></svg><svg class="d4" viewBox="0 0 40 56"><path d="M10 0h20v8c0 14 6 20 6 30a16 16 0 0 1-32 0c0-10 6-16 6-30z"/></svg><svg class="d5" viewBox="0 0 40 56"><path d="M10 0h20v8c0 14 6 20 6 30a16 16 0 0 1-32 0c0-10 6-16 6-30z"/></svg></div>
+  </section>
+
+  <!-- CALENDARIO -->
+  <section class="section calendar" id="calendario">
+    <div class="wrap">
+      <p class="eyebrow">El año en la colmena</p>
+      <h2>Una cosecha, <span class="hand">a su tiempo</span></h2>
+      <p class="lead">Las abejas marcan el calendario. Así sabes cuándo llega la miel nueva.</p>
+      <ol class="months reveal"><li class="m-rest"><span>Ene</span></li><li class="m-rest"><span>Feb</span></li><li class="m-wake"><span>Mar</span></li><li class="m-flor"><span>Abr</span></li><li class="m-flor"><span>May</span></li><li class="m-flor"><span>Jun</span></li><li class="m-cos"><span>Jul</span></li><li class="m-cos"><span>Ago</span></li><li class="m-new"><span>Sep</span></li><li class="m-prep"><span>Oct</span></li><li class="m-rest"><span>Nov</span></li><li class="m-rest"><span>Dic</span></li></ol>
+      <ul class="legend">
+        <li class="m-rest">Invierno: las abejas descansan en el racimo</li>
+        <li class="m-wake">Despiertan y crían</li>
+        <li class="m-flor">Floración: tomillo, espliego, brezo</li>
+        <li class="m-cos">Cosecha a mano</li>
+        <li class="m-new">Miel nueva en tarro</li>
+        <li class="m-prep">Preparan la colmena para el frío</li>
+      </ul>
+    </div>
   </section>
 
   <!-- ORIGEN -->
@@ -188,7 +230,7 @@
     <div class="wrap split">
       <div class="reveal">
         <p class="eyebrow">Origen</p>
-        <h2>Fuentemolinos, Burgos</h2>
+        <h2><span class="hand">Fuentemolinos,</span> Burgos</h2>
         <p class="lead">Un pueblo pequeño de la Ribera del Duero, entre páramos, monte bajo y campos de flor silvestre. Inviernos duros y veranos secos: las abejas trabajan menos tiempo, pero la miel sale más intensa.</p>
         <dl class="facts">
           <div><dt>Productor</dt><dd>Apirober</dd></div>
@@ -196,6 +238,16 @@
           <div><dt>Comarca</dt><dd>Ribera del Duero</dd></div>
           <div><dt>Paisaje</dt><dd>Páramo y monte bajo</dd></div>
         </dl>
+        <figure class="mini-map">
+          <svg viewBox="0 0 400 300" role="img" aria-label="Mapa: Fuentemolinos está en el sur de la provincia de Burgos, al norte de Madrid">
+            <path class="land" d="M15.0 39.0 54.0 11.7 120.0 15.6 180.0 21.4 240.0 23.4 252.0 27.3 315.0 46.8 390.0 62.4 390.0 81.9 360.0 105.3 321.0 117.0 294.0 156.0 285.0 179.4 300.0 202.8 279.0 222.3 270.0 249.6 246.0 261.3 231.0 284.7 162.0 284.7 126.0 312.0 105.0 292.5 72.0 265.2 27.0 273.0 30.0 214.5 9.0 202.8 27.0 148.2 33.0 85.8z"/>
+            <path class="border" d="M48 74 108 94 87 148 84 195 72 265"/>
+            <circle class="city" cx="183" cy="140" r="4"/><text x="192" y="152">Madrid</text>
+            <circle class="city" cx="183" cy="65" r="4"/><text x="192" y="62">Burgos</text>
+            <circle class="pulse" cx="180" cy="94" r="10"/><circle class="here" cx="180" cy="94" r="7"/>
+            <text class="here-t" x="196" y="101">Fuentemolinos</text>
+          </svg>
+        </figure>
       </div>
       <ul class="stats reveal" aria-label="Apirober en cifras">
         <li><b>1</b><span>única procedencia: Fuentemolinos</span></li>
@@ -238,11 +290,13 @@
             </label>
             <label class="size" data-size="t500" data-price="9">
               <button type="button" class="jar-btn" aria-label="Añadir un tarro de 500 g"><svg viewBox="0 0 60 80" style="height:74px"><use href="#jarSym"/></svg></button>
+              <span class="badge">Más vendido</span>
               <span>500 g <b class="price">9 €</b></span>
               <span class="stepper"><button type="button" class="minus" aria-label="Quitar un tarro de 500 g">−</button><input name="t500" type="number" min="0" value="1" required aria-label="Tarros de 500 g"><button type="button" class="plus" aria-label="Añadir un tarro de 500 g">+</button></span>
             </label>
             <label class="size" data-size="t1000" data-price="16">
               <button type="button" class="jar-btn" aria-label="Añadir un tarro de 1 kg"><svg viewBox="0 0 60 80" style="height:96px"><use href="#jarSym"/></svg></button>
+              <span class="badge badge-alt">Mejor €/kg</span>
               <span>1 kg <b class="price">16 €</b></span>
               <span class="stepper"><button type="button" class="minus" aria-label="Quitar un tarro de 1 kg">−</button><input name="t1000" type="number" min="0" value="0" required aria-label="Tarros de 1 kg"><button type="button" class="plus" aria-label="Añadir un tarro de 1 kg">+</button></span>
             </label>
@@ -262,6 +316,7 @@
             <button type="button" class="btn" id="resumenOk" autofocus>Confirmar y enviar</button>
           </div>
         </dialog>
+        <div class="thanks" id="gracias" role="status" hidden><img src="/assets/abeja-sola.png" alt="" width="44" height="44"><p><b>¡Gracias!</b> Roberto te contestará pronto por WhatsApp.</p></div>
         <p class="small">Se abrirá WhatsApp con el mensaje preparado para Roberto. También puedes llamarle al <a href="tel:+34657882582">+34 657 88 25 82</a>.</p>
       </div>
     </div>
