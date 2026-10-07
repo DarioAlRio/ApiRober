@@ -84,19 +84,34 @@
         <svg class="intro-scene" viewBox="0 0 300 360">
           <defs>
             <pattern id="combPat" width="14" height="24.25" patternUnits="userSpaceOnUse"><path d="M7 0l7 4v8l-7 4-7-4V4zM0 16.2v8M14 16.2v8" fill="#fdb12b" stroke="#c9801a" stroke-width="1.4"/></pattern>
+            <linearGradient id="suitG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e2dccf"/><stop offset=".45" stop-color="#faf7f0"/><stop offset="1" stop-color="#ebe5d8"/></linearGradient>
+            <linearGradient id="glovG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efe1bd"/><stop offset="1" stop-color="#d9c294"/></linearGradient>
             <linearGradient id="woodG" x1="0" x2="1"><stop offset="0" stop-color="#b5763a"/><stop offset=".5" stop-color="#d9a062"/><stop offset="1" stop-color="#a86a32"/></linearGradient>
           </defs>
           <g class="scene">
             <g class="frame">
-              <path d="M-60 40C-10 120 30 170 60 215M360 40C310 120 270 170 240 215" stroke="#d8cfbd" stroke-width="40" stroke-linecap="round" fill="none"/>
-              <path d="M-60 40C-10 120 30 170 60 215M360 40C310 120 270 170 240 215" stroke="#f4efe4" stroke-width="35" stroke-linecap="round" fill="none"/>
-              <path d="M30 170c8 10 18 18 30 22M270 170c-8 10-18 18-30 22" stroke="#d8cfbd" stroke-width="2.5" fill="none"/>
               <rect x="80" y="232" width="140" height="116" fill="url(#combPat)"/>
               <rect x="80" y="232" width="140" height="116" fill="none" stroke="url(#woodG)" stroke-width="7"/>
               <rect x="52" y="222" width="196" height="11" rx="2" fill="url(#woodG)"/>
               <path d="M150 348c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z" class="frame-drip" fill="#fdb12b"/>
-              <g fill="#efe7d6" stroke="#cfc3ab" stroke-width="2"><rect x="44" y="200" width="34" height="42" rx="14"/><rect x="222" y="200" width="34" height="42" rx="14"/></g>
-              <g stroke="#cfc3ab" stroke-width="2" fill="none"><path d="M52 214h18M52 222h18M230 214h18M230 222h18"/></g>
+              <g id="armL">
+                <path d="M-109.3 -9.0 -105.4 3.1 -101.3 14.9 -97.1 26.5 -92.8 37.8 -88.3 48.8 -83.6 59.6 -78.7 70.1 -73.6 80.2 -68.4 90.1 -62.9 99.7 -57.3 109.0 -51.4 118.0 -45.4 126.6 -39.1 134.9 -32.7 142.9 -26.1 150.5 -19.3 157.8 -12.3 164.8 -5.2 171.4 2.0 177.6 9.4 183.5 16.9 189.0 24.4 194.2 32.1 199.0 59.9 165.0 55.0 159.2 50.2 153.2 45.6 147.1 41.0 140.7 36.6 134.2 32.2 127.5 27.9 120.6 23.6 113.5 19.4 106.2 15.2 98.7 11.1 90.9 6.9 83.0 2.8 74.9 -1.3 66.5 -5.4 57.9 -9.5 49.1 -13.5 40.0 -17.6 30.7 -21.5 21.1 -25.5 11.2 -29.4 1.1 -33.3 -9.3 -37.0 -20.0 -40.7 -31.0Z" fill="url(#suitG)" stroke="#d3cbb9" stroke-width="1.5"/>
+                <path d="M-40.7 -31.0 -37.0 -20.0 -33.3 -9.3 -29.4 1.1 -25.5 11.2 -21.5 21.1 -17.6 30.7 -13.5 40.0 -9.5 49.1 -5.4 57.9 -1.3 66.5 2.8 74.9 6.9 83.0 11.1 90.9 15.2 98.7 19.4 106.2 23.6 113.5 27.9 120.6 32.2 127.5 36.6 134.2 41.0 140.7 45.6 147.1 50.2 153.2 55.0 159.2 59.9 165.0 39.7 189.7 32.8 184.6 26.0 179.2 19.3 173.5 12.7 167.5 6.3 161.1 -0.1 154.5 -6.3 147.6 -12.4 140.3 -18.4 132.8 -24.2 125.0 -29.8 116.8 -35.4 108.4 -40.8 99.6 -46.0 90.6 -51.1 81.3 -56.0 71.7 -60.8 61.8 -65.4 51.6 -69.9 41.2 -74.3 30.5 -78.5 19.5 -82.6 8.2 -86.6 -3.3 -90.4 -15.0Z" fill="#bdb4a1" opacity=".35"/>
+                <g fill="none" stroke="#c9c0ad" stroke-width="2.2" stroke-linecap="round"><path d="M-63.7 87.7Q-41.0 66.0 -14.8 62.8"/><path d="M-52.8 106.4Q-31.7 84.1 -6.2 80.0"/><path d="M-41.1 123.9Q-22.0 101.2 2.6 96.3"/><path d="M-22.3 147.8Q-6.6 124.8 16.2 119.0"/></g>
+                <g transform="translate(46.0 182.0) rotate(-50.8)">
+                  <rect x="-24" y="-8" width="48" height="14" rx="6" fill="#e9e3d6" stroke="#cfc6b3"/>
+                  <path d="M-18-6v10M-10-6v10M-2-6v10M6-6v10M14-6v10" stroke="#c4bba8" stroke-width="1.4"/>
+                  <path d="M-21 6h42l-4 26h-34z" fill="url(#glovG)" stroke="#c9ad7a"/>
+                  <path d="M-19 14h38" stroke="#c4a674" stroke-width="1.2" stroke-dasharray="3 3"/>
+                </g>
+                <path d="M50 210c-3-12 6-20 17-19 11 1 18 9 16 20l-2 9H52z" fill="#c8954b"/>
+                <g fill="#d6a55a" stroke="#9c6b2c" stroke-width="1.3">
+                  <rect x="52" y="211" width="7.5" height="26" rx="3.7"/><rect x="58.5" y="210" width="7.5" height="28" rx="3.7"/>
+                  <rect x="65" y="210" width="7.5" height="28" rx="3.7"/><rect x="71.5" y="212" width="7" height="24" rx="3.5"/>
+                </g>
+                <path d="M53 229h25" stroke="#9c6b2c" stroke-width="1" opacity=".5"/>
+              </g>
+              <use href="#armL" transform="translate(300 0) scale(-1 1)"/>
             </g>
             <rect x="40" y="250" width="220" height="110" rx="4" fill="url(#woodG)"/>
             <rect x="46" y="250" width="208" height="7" fill="#5a3117"/>
