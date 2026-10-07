@@ -399,3 +399,25 @@ h2 .hand{color:var(--accent)}
 .thanks img{flex:none;background:var(--amber);border-radius:50%;padding:4px;animation:buzz 2s ease-in-out infinite}
 .thanks p{font-weight:500;font-size:.92rem;line-height:1.35}
 .thanks b{color:var(--amber)}
+
+/* Intro de la portada: el apicultor saca un cuadro, cae una gota, zoom y se queda la gota grande */
+.intro-scene{display:none;position:absolute;right:8%;top:10px;width:300px;height:360px;overflow:visible;pointer-events:none}
+.hero-art.intro .intro-scene{display:block}
+.hero-art.intro :is(.art-combs,.trail,.flying-bee,.falling-drop){opacity:0;transition:none}
+.hero-art.intro .honey-level,.hero-art.intro-done .honey-level{animation:none!important;transform:translateY(22px)}
+.hero-art.intro .honey-wave{animation:none}
+.hero-art.intro .frame{animation:pull 1.5s cubic-bezier(.5,0,.3,1) .2s both}
+@keyframes pull{from{transform:translateY(0)}to{transform:translateY(-140px)}}
+.hero-art.intro .frame-drip{transform-box:fill-box;transform-origin:50% 0;animation:sag 1.7s ease-in both}
+@keyframes sag{0%,70%{transform:scale(.4)}100%{transform:scale(1.2,1.5)}}
+.hero-art.intro .scene{transform-origin:150px 215px;animation:zoom 1.3s cubic-bezier(.55,0,.8,.4) 1.85s both}
+@keyframes zoom{to{transform:scale(3.4);opacity:0}}
+.hero-art.intro .blob{animation:dropfall 1.3s cubic-bezier(.55,0,.6,1) 1.85s both}
+@keyframes dropfall{
+  0%{opacity:0;transform:translateY(-31%) rotate(0) scale(.06)}
+  6%{opacity:1}
+  100%{opacity:1;transform:rotate(-10deg) scale(1)}}
+.hero-art.intro-done :is(.art-combs,.trail,.flying-bee){animation:appear .6s ease-out both}
+@keyframes appear{from{opacity:0}}
+@media (max-width:820px){.intro-scene{width:200px;height:240px;right:6%}}
+@media (prefers-reduced-motion:reduce){.intro-scene{display:none!important}}

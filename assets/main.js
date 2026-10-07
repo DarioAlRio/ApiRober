@@ -13,6 +13,17 @@ const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es
 document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 document.documentElement.classList.add('js');
 
+// Intro de la portada (una vez por visita): el apicultor saca un cuadro, cae la gota y se queda como gota grande
+const art = document.querySelector('.hero-art');
+if (art && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let visto = false;
+  try { visto = sessionStorage.getItem('intro') === '1'; sessionStorage.setItem('intro', '1'); } catch (e) {}
+  if (!visto) {
+    art.classList.add('intro');
+    setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 3300);
+  }
+}
+
 // Pedido por WhatsApp a Roberto: primero un resumen para confirmar
 const dlg = document.getElementById('resumen');
 let waBody = '';
