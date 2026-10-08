@@ -503,7 +503,7 @@ h2 .hand{color:var(--accent)}
 .mini-map:not(.zoomed) [data-z="out"],.mini-map:not(.zoomed) [data-z="reset"]{opacity:.35;pointer-events:none}
 /* Scroll suave (Lenis) */
 html.lenis,html.lenis body{height:auto}
-.lenis.lenis-smooth{scroll-behavior:auto!important}
+html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
 /* Celdas de panal de la portada también de fondo en las cuatro últimas secciones (color según el tema) */
 :is(#calendario,#origen,#dudas,#pedidos){position:relative;isolation:isolate}

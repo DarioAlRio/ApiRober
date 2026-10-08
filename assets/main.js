@@ -117,11 +117,16 @@ if (sb && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const table = Array.from({ length: 201 }, (_, i) => path.getPointAtLength(i / 200 * len).y);
   const toProgress = y => { let i = 0; while (i < 200 && table[i + 1] < y) i++; return i / 200; };
   let dragging = false;
+  // Una sola actualización por fotograma, y salto instantáneo (sin el scroll suave del navegador)
+  let pendY = null;
   const dragTo = e => {
     const r = trail.getBoundingClientRect();
     const p = toProgress(Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) * 1000);
-    const y = p * (document.documentElement.scrollHeight - innerHeight);
-    window.lenis ? window.lenis.scrollTo(y, { immediate: true }) : scrollTo(0, y);
+    if (pendY === null) requestAnimationFrame(() => {
+      window.lenis ? window.lenis.scrollTo(pendY, { immediate: true, force: true }) : scrollTo({ top: pendY, behavior: 'instant' });
+      pendY = null;
+    });
+    pendY = p * (document.documentElement.scrollHeight - innerHeight);
   };
   bee.addEventListener('pointerdown', e => { dragging = true; bee.setPointerCapture(e.pointerId); sb.classList.add('grab'); e.preventDefault(); });
   bee.addEventListener('pointermove', e => { if (dragging) dragTo(e); });
