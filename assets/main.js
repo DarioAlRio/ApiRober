@@ -17,10 +17,19 @@ document.documentElement.classList.add('js');
 const art = document.querySelector('.hero-art');
 if (art && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   let visto = false;
-  try { visto = sessionStorage.getItem('intro') === '1'; sessionStorage.setItem('intro', '1'); } catch (e) {}
+  try { visto = sessionStorage.getItem('intro') === '1'; } catch (e) {}
   if (!visto) {
-    art.classList.add('intro');
-    setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 7500);
+    // Se prepara en pausa; arranca en cuanto la escena se ve entera (en móvil está debajo del texto y hay que bajar)
+    art.classList.add('intro', 'intro-wait');
+    const start = () => {
+      art.classList.remove('intro-wait');
+      try { sessionStorage.setItem('intro', '1'); } catch (e) {}
+      setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 7500);
+    };
+    if ('IntersectionObserver' in window) {
+      const ob = new IntersectionObserver(([e]) => { if (e.intersectionRatio >= .9) { ob.disconnect(); start(); } }, { threshold: [.9] });
+      ob.observe(art);
+    } else start();
   }
 }
 
