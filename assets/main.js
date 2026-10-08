@@ -220,3 +220,9 @@ if (mp) {
   svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
   draw();
 }
+
+// Fondo de panal continuo entre secciones: cada una desplaza sus celdas según su posición en la página
+const hexSecs = document.querySelectorAll('#calendario,#origen,#dudas,#pedidos');
+const alignHex = () => hexSecs.forEach(s => s.style.setProperty('--hy', `${-((s.getBoundingClientRect().top + scrollY) % 34.641)}px`));
+alignHex(); addEventListener('load', alignHex); addEventListener('resize', alignHex);
+if ('ResizeObserver' in window) new ResizeObserver(alignHex).observe(document.body);
