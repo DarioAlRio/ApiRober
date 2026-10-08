@@ -468,3 +468,11 @@ h2 .hand{color:var(--accent)}
 .wa-fab{height:60px;min-width:70px;padding:0 21px!important;justify-content:center;border-radius:0!important;box-shadow:none!important;filter:drop-shadow(0 10px 14px rgba(0,0,0,.3));
   clip-path:polygon(17px 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,17px 100%,0 50%);transition:padding .3s,gap .3s,transform .2s,opacity .3s}
 .wa-fab:hover,.wa-fab:focus-visible{padding:0 26px 0 24px!important}
+/* Hexágonos: botones de icono en hexágono; los de texto mantienen la píldora y sacan puntas de panal al pasar el ratón */
+.theme-toggle,.stepper button{border:0!important;border-radius:0!important;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.theme-toggle{width:40px;height:46px;background:var(--amber)!important;color:var(--brown-d)!important;transition:transform .2s}
+.theme-toggle:hover{transform:scale(1.08)}
+.stepper button{width:34px;height:38px}
+@media (max-width:820px){.stepper button{width:34px;height:38px}}
+.btn:not(.btn-ghost):not(.btn-ghost-light){clip-path:polygon(0 0,100% 0,100% 50%,100% 100%,0 100%,0 50%);transition:transform .2s,clip-path .3s,border-radius .3s}
+.btn:not(.btn-ghost):not(.btn-ghost-light):hover,.btn:not(.btn-ghost):not(.btn-ghost-light):focus-visible{border-radius:6px;box-shadow:none;clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,16px 100%,0 50%)}
