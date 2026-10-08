@@ -13,33 +13,24 @@ const io = 'IntersectionObserver' in window && new IntersectionObserver(es => es
 document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 document.documentElement.classList.add('js');
 
-// Intro de la portada (una vez por visita): el apicultor saca un cuadro, cae la gota y se queda como gota grande
+// Intro de la portada (una vez por visita): vídeo del apicultor que acaba en la gota HD
 const art = document.querySelector('.hero-art');
-if (art && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+const vid = art && art.querySelector('.intro-vid');
+if (vid) {
+  const fin = () => { art.classList.remove('intro'); art.classList.add('intro-done'); };
+  const play = () => { art.classList.remove('intro-done'); art.classList.add('intro'); vid.currentTime = 0; vid.play().catch(fin); };
+  vid.addEventListener('ended', fin);
   let visto = false;
   try { visto = sessionStorage.getItem('intro') === '1'; } catch (e) {}
-  if (!visto) {
-    // Se prepara en pausa; arranca en cuanto la escena se ve entera (en móvil está debajo del texto y hay que bajar)
-    art.classList.add('intro', 'intro-wait');
-    const start = () => {
-      art.classList.remove('intro-wait');
-      try { sessionStorage.setItem('intro', '1'); } catch (e) {}
-      art.t = setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 7500);
-    };
-    if ('IntersectionObserver' in window) {
-      const ob = new IntersectionObserver(([e]) => { if (e.intersectionRatio >= .9) { ob.disconnect(); start(); } }, { threshold: [.9] });
-      ob.observe(art);
-    } else start();
+  if (visto || matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) fin();
+  else {
+    art.classList.add('intro');
+    // Arranca cuando el vídeo se ve casi entero (en móvil hay que bajar)
+    const ob = new IntersectionObserver(([e]) => { if (e.intersectionRatio >= .6) { ob.disconnect(); try { sessionStorage.setItem('intro', '1'); } catch (e) {} play(); } }, { threshold: [.6] });
+    ob.observe(art);
   }
+  art.querySelector('.replay').addEventListener('click', play);
 }
-
-// Botón para repetir la intro
-const rp = art && art.querySelector('.replay');
-if (rp) rp.addEventListener('click', () => {
-  clearTimeout(art.t);
-  art.classList.remove('intro', 'intro-done', 'intro-wait'); void art.offsetWidth; art.classList.add('intro');
-  art.t = setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 7500);
-});
 
 // Pedido por WhatsApp a Roberto: primero un resumen para confirmar
 const dlg = document.getElementById('resumen');
