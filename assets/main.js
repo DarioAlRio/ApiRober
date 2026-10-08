@@ -146,7 +146,7 @@ tt.addEventListener('click', () => {
   tt.classList.remove('spin'); void tt.offsetWidth; tt.classList.add('spin');
   rootEl.dataset.theme = isDark() ? 'light' : 'dark';
   try { localStorage.setItem('tema', rootEl.dataset.theme); } catch (e) {}
-  tt.addEventListener('animationend', () => tt.classList.remove('spin'));
-label();
+  label();
 });
+tt.addEventListener('animationend', () => tt.classList.remove('spin'));
 label();
