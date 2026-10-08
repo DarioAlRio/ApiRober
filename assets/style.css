@@ -478,3 +478,6 @@ h2 .hand{color:var(--accent)}
 .btn:not(.btn-ghost):not(.btn-ghost-light):hover,.btn:not(.btn-ghost):not(.btn-ghost-light):focus-visible{border-radius:6px;box-shadow:none;clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,16px 100%,0 50%)}
 .theme-toggle.spin{animation:hexspin .6s cubic-bezier(.4,0,.2,1)}
 @keyframes hexspin{from{rotate:0deg}to{rotate:360deg}}
+/* Los botones de borde conservan el borde al pasar el ratón */
+.btn-ghost:hover,.btn-ghost:focus-visible{box-shadow:inset 0 0 0 3px var(--brown)}
+.btn-ghost-light:hover,.btn-ghost-light:focus-visible{box-shadow:inset 0 0 0 3px var(--amber)}
