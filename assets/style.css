@@ -501,3 +501,7 @@ h2 .hand{color:var(--accent)}
 .map-ctrl button:hover{transform:scale(1.1)}
 .map-ctrl button:focus-visible{outline:none;background:var(--amber);color:var(--brown)}
 .mini-map:not(.zoomed) [data-z="out"],.mini-map:not(.zoomed) [data-z="reset"]{opacity:.35;pointer-events:none}
+/* Scroll suave (Lenis) */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
