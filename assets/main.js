@@ -143,8 +143,10 @@ const tt = document.querySelector('.theme-toggle'), rootEl = document.documentEl
 const isDark = () => rootEl.dataset.theme ? rootEl.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
 const label = () => tt.setAttribute('aria-label', isDark() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
 tt.addEventListener('click', () => {
+  tt.classList.remove('spin'); void tt.offsetWidth; tt.classList.add('spin');
   rootEl.dataset.theme = isDark() ? 'light' : 'dark';
   try { localStorage.setItem('tema', rootEl.dataset.theme); } catch (e) {}
-  label();
+  tt.addEventListener('animationend', () => tt.classList.remove('spin'));
+label();
 });
 label();
