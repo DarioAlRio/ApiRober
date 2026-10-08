@@ -20,7 +20,7 @@ if (art && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   try { visto = sessionStorage.getItem('intro') === '1'; sessionStorage.setItem('intro', '1'); } catch (e) {}
   if (!visto) {
     art.classList.add('intro');
-    setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 6600);
+    setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 7400);
   }
 }
 
