@@ -553,3 +553,12 @@ html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
   --hexcell:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641' viewBox='0 0 60 34.641'%3E%3Cpath d='M40 17.32 30 34.641H10L0 17.32 10 0h20zM40 17.32h20' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E");
   -webkit-mask:var(--hexcell) 0 0/30px 17.32px;mask:var(--hexcell) 0 0/30px 17.32px;transition:opacity .3s}
 .posts a:hover .card::before{opacity:.65}
+/* Blog: celdas decorativas */
+.post-hero,.post{position:relative;isolation:isolate;overflow-x:clip}
+.post-hero .deco{opacity:.5}
+.deco.b1{right:-40px;bottom:30px;width:230px;rotate:12deg}
+.deco.b2{left:-10px;top:22%;width:170px;rotate:-14deg}
+.deco.b3{right:-50px;top:62%;width:210px;rotate:18deg}
+.deco.b4{left:-50px;top:40px;width:240px;rotate:-8deg}
+.deco.b5{right:-50px;bottom:40px;width:190px;rotate:10deg}
+.nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
