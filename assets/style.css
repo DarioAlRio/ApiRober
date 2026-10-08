@@ -513,3 +513,8 @@ html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
 /* La abeja del lateral se puede agarrar para mover la página */
 .scroll-bee .sbee{pointer-events:auto;cursor:grab;touch-action:none}
 .scroll-bee.grab .sbee{cursor:grabbing;filter:drop-shadow(1.5px 0 0 #fdb12b) drop-shadow(-1.5px 0 0 #fdb12b) drop-shadow(0 1.5px 0 #fdb12b) drop-shadow(0 -1.5px 0 #fdb12b) drop-shadow(0 8px 8px rgba(0,0,0,.4))}
+/* Sin barra de desplazamiento del navegador donde la abeja del lateral hace de barra (pantallas anchas con ratón) */
+@media (min-width:1101px) and (hover:hover) and (pointer:fine){
+  html{scrollbar-width:none}
+  html::-webkit-scrollbar{display:none}
+}
