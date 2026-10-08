@@ -533,11 +533,11 @@ html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
 .post-hero+.post{padding-top:110px}
 /* Celdas de panal decorativas repartidas por la web */
 :is(#tarro,#miel,#comparativa){isolation:isolate}
-.combs.deco{position:absolute;z-index:-1;color:var(--amber);opacity:.8;pointer-events:none;animation:decofloat 9s ease-in-out infinite}
+.combs.deco{position:absolute;z-index:-1;color:var(--amber);opacity:.8;pointer-events:none;height:auto;overflow:visible}
 .deco.d1{right:-50px;top:70px;width:250px;rotate:14deg}
 .deco.d2{left:-70px;bottom:50px;width:260px;rotate:-12deg;animation-delay:-2s}
 .deco.d3{right:-40px;bottom:30px;width:220px;rotate:8deg;animation-delay:-4s}
-.deco.d4{left:-50px;top:50px;width:210px;rotate:-20deg;animation-delay:-1s}
+.deco.d4{right:-50px;top:40px;width:180px;rotate:-20deg}
 .deco.d5{right:-60px;bottom:60px;width:230px;rotate:22deg;opacity:.65;animation-delay:-6s}
 .deco.d6{left:-40px;top:45%;width:240px;rotate:6deg;animation-delay:-3s}
 .deco.d7{right:-50px;bottom:40px;width:260px;rotate:-8deg;animation-delay:-5s}
