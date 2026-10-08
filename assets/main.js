@@ -112,6 +112,21 @@ if (sb && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   };
   addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
   addEventListener('resize', move); move();
+
+  // Agarrar la abeja: arrastrándola por la estela se mueve la página
+  const table = Array.from({ length: 201 }, (_, i) => path.getPointAtLength(i / 200 * len).y);
+  const toProgress = y => { let i = 0; while (i < 200 && table[i + 1] < y) i++; return i / 200; };
+  let dragging = false;
+  const dragTo = e => {
+    const r = trail.getBoundingClientRect();
+    const p = toProgress(Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) * 1000);
+    const y = p * (document.documentElement.scrollHeight - innerHeight);
+    window.lenis ? window.lenis.scrollTo(y, { immediate: true }) : scrollTo(0, y);
+  };
+  bee.addEventListener('pointerdown', e => { dragging = true; bee.setPointerCapture(e.pointerId); sb.classList.add('grab'); e.preventDefault(); });
+  bee.addEventListener('pointermove', e => { if (dragging) dragTo(e); });
+  const drop = () => { dragging = false; sb.classList.remove('grab'); };
+  bee.addEventListener('pointerup', drop); bee.addEventListener('pointercancel', drop);
 }
 
 // Abeja que sigue el cursor (solo ratón): va con retraso, se orienta hacia donde vuela y revolotea al pararse
