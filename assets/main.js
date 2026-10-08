@@ -38,7 +38,7 @@ let waBody = '';
 document.getElementById('orderForm').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
-  const items = [['t250', '250 g', 6], ['t500', '500 g', 9], ['t1000', '1 kg', 16]]
+  const items = [['t250', '250 g', 4], ['t500', '500 g', 7], ['t1000', '1 kg', 12]]
     .filter(([k]) => +f.get(k) > 0).map(([k, t, p]) => ({ n: +f.get(k), t, p }));
   if (!items.length) { alert('Indica al menos un tarro.'); return; }
   const tarros = items.reduce((a, i) => a + i.n, 0);
