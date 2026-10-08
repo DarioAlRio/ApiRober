@@ -588,3 +588,9 @@ header.post-hero{background:var(--brown) url("data:image/svg+xml,%3Csvg xmlns='h
 /* «Del panal al tarro»: panal entero dentro de la sección */
 .dark .combs-r{top:90px;bottom:auto;width:210px}
 .dark .combs-r{top:auto;bottom:10px}
+/* Blog: cabecera y goteo en una sola pieza, con el panal continuo hasta el borde del goteo */
+header.post-hero{background:none}
+.post-hero::after{top:0;bottom:-59px;height:auto;z-index:-1;
+  background:var(--brown) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641' viewBox='0 0 60 34.641'%3E%3Cpath d='M40 17.32 30 34.641H10L0 17.32 10 0h20zM40 17.32h20' fill='none' stroke='%23fdb12b' stroke-opacity='.1' stroke-width='1.5'/%3E%3C/svg%3E") 0 0/60px 34.641px;
+  -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 59px) no-repeat,url(/assets/drip.svg) bottom/100% 60px no-repeat;
+  mask:linear-gradient(#000 0 0) top/100% calc(100% - 59px) no-repeat,url(/assets/drip.svg) bottom/100% 60px no-repeat}
