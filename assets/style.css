@@ -595,3 +595,5 @@ header.post-hero{background:none}
   background:var(--hexfill,none) 0 0/var(--hexfill-size,auto) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641' viewBox='0 0 60 34.641'%3E%3Cpath d='M40 17.32 30 34.641H10L0 17.32 10 0h20zM40 17.32h20' fill='none' stroke='%23fdb12b' stroke-opacity='.1' stroke-width='1.5'/%3E%3C/svg%3E") 0 0/60px 34.641px var(--brown);
   -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 59px) no-repeat,url(/assets/drip.svg) bottom/100% 60px no-repeat;
   mask:linear-gradient(#000 0 0) top/100% calc(100% - 59px) no-repeat,url(/assets/drip.svg) bottom/100% 60px no-repeat}
+/* Celdas decorativas más grandes: la diferencia, del panal al tarro, dudas y pedidos */
+@media (min-width:821px){.deco.d3{width:300px}.deco.d6{width:320px}.deco.d7{width:350px}.deco.d8{width:230px}.dark .combs-r{width:290px}}
