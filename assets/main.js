@@ -150,3 +150,71 @@ tt.addEventListener('click', () => {
 });
 tt.addEventListener('animationend', () => tt.classList.remove('spin'));
 label();
+
+// Mapa de origen con zoom: botones, doble clic, pellizco y arrastre. Al acercarse aparece la Ribera del Duero
+const mp = document.querySelector('.mini-map');
+if (mp) {
+  const svg = mp.querySelector('svg'), W = 400, H = 300, MAX = 24;
+  const [fx, fy] = mp.dataset.fm.split(' ').map(Number);
+  let k = 1, cx = W / 2, cy = H / 2, anim;
+  const clamp = () => {
+    k = Math.min(MAX, Math.max(1, k));
+    const hw = W / 2 / k, hh = H / 2 / k;
+    cx = Math.min(W - hw, Math.max(hw, cx)); cy = Math.min(H - hh, Math.max(hh, cy));
+  };
+  const draw = () => {
+    clamp();
+    const w = W / k, h = H / k;
+    svg.setAttribute('viewBox', `${cx - w / 2} ${cy - h / 2} ${w} ${h}`);
+    svg.querySelectorAll('.pin').forEach(p => p.setAttribute('transform', `scale(${1 / k})`));
+    mp.classList.toggle('zoomed', k > 1.01);
+    mp.classList.toggle('deep', k >= 5);
+  };
+  // Transición suave hasta un zoom y centro dados
+  const go = (k2, cx2, cy2) => {
+    cancelAnimationFrame(anim);
+    const k1 = k, x1 = cx, y1 = cy, t0 = performance.now();
+    const step = now => {
+      const t = Math.min(1, (now - t0) / 450), e = 1 - Math.pow(1 - t, 3);
+      k = k1 * Math.pow(k2 / k1, e); cx = x1 + (cx2 - x1) * e; cy = y1 + (cy2 - y1) * e; draw();
+      if (t < 1) anim = requestAnimationFrame(step);
+    };
+    anim = requestAnimationFrame(step);
+  };
+  // Punto del mapa bajo el cursor
+  const at = (x, y) => { const r = svg.getBoundingClientRect(); return [cx + ((x - r.left) / r.width - .5) * W / k, cy + ((y - r.top) / r.height - .5) * H / k]; };
+  // Zoom manteniendo fijo un punto del mapa
+  const zoomAt = (f, px, py, smooth) => {
+    const k2 = Math.min(MAX, Math.max(1, k * f)), s = k / k2;
+    const nx = px + (cx - px) * s, ny = py + (cy - py) * s;
+    smooth ? go(k2, nx, ny) : (k = k2, cx = nx, cy = ny, draw());
+  };
+  mp.querySelector('.map-ctrl').addEventListener('click', e => {
+    const z = e.target.closest('button')?.dataset.z;
+    if (z === 'in') k < 1.01 ? go(2.5, fx, fy) : zoomAt(2, cx, cy, true);  // el primer clic va hacia Fuentemolinos
+    if (z === 'out') zoomAt(.5, cx, cy, true);
+    if (z === 'reset') go(1, W / 2, H / 2);
+  });
+  svg.addEventListener('dblclick', e => { e.preventDefault(); zoomAt(2, ...at(e.clientX, e.clientY), true); });
+  // Rueda solo con Ctrl/⌘ para no secuestrar el scroll de la página
+  svg.addEventListener('wheel', e => { if (!e.ctrlKey && !e.metaKey) return; e.preventDefault(); zoomAt(Math.exp(-e.deltaY * .002), ...at(e.clientX, e.clientY)); }, { passive: false });
+  // Arrastre y pellizco
+  const pts = new Map(); let last = null;
+  svg.addEventListener('pointerdown', e => { pts.set(e.pointerId, [e.clientX, e.clientY]); if (k > 1.01 || pts.size > 1) svg.setPointerCapture(e.pointerId); });
+  svg.addEventListener('pointermove', e => {
+    if (!pts.has(e.pointerId)) return;
+    const prev = pts.get(e.pointerId); pts.set(e.pointerId, [e.clientX, e.clientY]);
+    const r = svg.getBoundingClientRect();
+    if (pts.size === 1 && k > 1.01) {
+      svg.classList.add('drag'); cancelAnimationFrame(anim);
+      cx -= (e.clientX - prev[0]) / r.width * W / k; cy -= (e.clientY - prev[1]) / r.height * H / k; draw();
+    } else if (pts.size === 2) {
+      const [a, b] = [...pts.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      if (last) zoomAt(d / last, ...at((a[0] + b[0]) / 2, (a[1] + b[1]) / 2));
+      last = d;
+    }
+  });
+  const up = e => { pts.delete(e.pointerId); if (pts.size < 2) last = null; if (!pts.size) svg.classList.remove('drag'); };
+  svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
+  draw();
+}

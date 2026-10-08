@@ -376,15 +376,18 @@ h2 .hand{color:var(--accent)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .m-cos{background:#4a2a13}}
 
 /* 8. Mapa */
-.mini-map{margin-top:22px;background:var(--card);border-radius:20px;padding:14px;max-width:420px;box-shadow:0 20px 40px -30px rgba(90,49,23,.6)}
-.mini-map svg{width:100%;height:auto;overflow:visible}
-.mini-map .land{fill:rgba(253,177,43,.22);stroke:var(--amber-d);stroke-width:2;stroke-linejoin:round}
-.mini-map .border{fill:none;stroke:var(--amber-d);stroke-width:1.5;stroke-dasharray:4 5;opacity:.6}
+.mini-map{position:relative;margin-top:22px;background:var(--card);border-radius:20px;padding:14px;max-width:420px;box-shadow:0 20px 40px -30px rgba(90,49,23,.6)}
+.mini-map svg{width:100%;height:auto;display:block;border-radius:10px;cursor:grab;touch-action:pan-y;user-select:none}
+.mini-map.zoomed svg{touch-action:none}
+.mini-map svg.drag{cursor:grabbing}
+.mini-map path{vector-effect:non-scaling-stroke}
+.mini-map .nb{fill:rgba(122,69,34,.07);stroke:rgba(122,69,34,.25);stroke-width:.8}
+.mini-map .land{fill:rgba(253,177,43,.22);stroke:var(--amber-d);stroke-width:1.2;stroke-linejoin:round}
 .mini-map .city{fill:var(--brown)}
 .mini-map text{font:600 13px Montserrat,sans-serif;fill:var(--ink)}
 .mini-map .here{fill:var(--amber-d);stroke:#fff;stroke-width:2.5}
 .mini-map .here-t{font-weight:800;font-size:15px;fill:var(--head)}
-.mini-map .pulse{fill:var(--amber);transform-origin:180px 94px;animation:pulse 2s ease-out infinite}
+.mini-map .pulse{fill:var(--amber);transform-box:fill-box;transform-origin:center;animation:pulse 2s ease-out infinite}
 @keyframes pulse{from{transform:scale(.6);opacity:.8}to{transform:scale(2.4);opacity:0}}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mini-map .city{fill:var(--amber)}}
 :root[data-theme="dark"] .mini-map .city{fill:var(--amber)}
@@ -488,3 +491,13 @@ h2 .hand{color:var(--accent)}
 @media (min-width:1000px){.foot-in>p:nth-child(2){white-space:nowrap}}
 /* Mapa de origen: provincia de Burgos */
 .mini-map .prov{fill:rgba(253,177,43,.55);stroke:var(--head);stroke-width:1.4;stroke-linejoin:round}
+/* Mapa con zoom: la Ribera del Duero aparece al acercarse */
+.mini-map .ribera{fill:rgba(166,84,0,.18);stroke:var(--accent);stroke-width:1.6;stroke-dasharray:5 3;opacity:0;transition:opacity .4s}
+.mini-map .rib-label{opacity:0;transition:opacity .4s}
+.mini-map .rib-label text{font-size:12px;font-weight:800;fill:var(--accent);letter-spacing:.04em}
+.mini-map.deep .ribera,.mini-map.deep .rib-label{opacity:1}
+.map-ctrl{position:absolute;right:22px;top:22px;display:grid;gap:6px}
+.map-ctrl button{width:32px;height:36px;border:0;background:var(--brown);color:var(--amber);font:800 1.1rem/1 Montserrat,sans-serif;cursor:pointer;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:transform .2s}
+.map-ctrl button:hover{transform:scale(1.1)}
+.map-ctrl button:focus-visible{outline:none;background:var(--amber);color:var(--brown)}
+.mini-map:not(.zoomed) [data-z="out"],.mini-map:not(.zoomed) [data-z="reset"]{opacity:.35;pointer-events:none}
