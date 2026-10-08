@@ -464,6 +464,7 @@ h2 .hand{color:var(--accent)}
 /* Botones hexagonales (repetir y WhatsApp) */
 .hero-art .replay{width:48px;height:54px;border-radius:0;box-shadow:none;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
 .hero-art .replay:hover{transform:scale(1.08)}
-.wa-fab{width:62px;height:70px;padding:0!important;justify-content:center;border-radius:0!important;box-shadow:none!important;filter:drop-shadow(0 10px 14px rgba(0,0,0,.3));clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
-.wa-fab span{display:none}
-.wa-fab:hover,.wa-fab:focus-visible{gap:0}
+/* WhatsApp: hexágono con puntas a los lados que se alarga al pasar el ratón */
+.wa-fab{height:60px;min-width:70px;padding:0 21px!important;justify-content:center;border-radius:0!important;box-shadow:none!important;filter:drop-shadow(0 10px 14px rgba(0,0,0,.3));
+  clip-path:polygon(17px 0,calc(100% - 17px) 0,100% 50%,calc(100% - 17px) 100%,17px 100%,0 50%);transition:padding .3s,gap .3s,transform .2s,opacity .3s}
+.wa-fab:hover,.wa-fab:focus-visible{padding:0 26px 0 24px!important}
