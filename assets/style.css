@@ -505,3 +505,8 @@ h2 .hand{color:var(--accent)}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-stopped{overflow:hidden}
+/* Celdas de panal de la portada también de fondo en la sección de pedidos (color según el tema) */
+.order{position:relative}
+.order::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.1;background:var(--head);
+  --hexcell:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641' viewBox='0 0 60 34.641'%3E%3Cpath d='M40 17.32 30 34.641H10L0 17.32 10 0h20zM40 17.32h20' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E");
+  -webkit-mask:var(--hexcell) 0 0/60px 34.641px;mask:var(--hexcell) 0 0/60px 34.641px}
