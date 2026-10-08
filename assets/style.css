@@ -575,7 +575,7 @@ html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
 /* Blog: celdas de las tarjetas más suaves y cabecera con fondo de panal como la portada */
 .posts .card::before{opacity:.18}
 .posts a:hover .card::before{opacity:.32}
-.post-hero{background:var(--brown) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641' viewBox='0 0 60 34.641'%3E%3Cpath d='M40 17.32 30 34.641H10L0 17.32 10 0h20zM40 17.32h20' fill='none' stroke='%23fdb12b' stroke-opacity='.1' stroke-width='1.5'/%3E%3C/svg%3E") 0 0/60px 34.641px}
+header.post-hero{background:var(--brown) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641' viewBox='0 0 60 34.641'%3E%3Cpath d='M40 17.32 30 34.641H10L0 17.32 10 0h20zM40 17.32h20' fill='none' stroke='%23fdb12b' stroke-opacity='.1' stroke-width='1.5'/%3E%3C/svg%3E") 0 0/60px 34.641px}
 /* Comparativa y «Del panal al tarro»: celdas decorativas a la izquierda */
 .deco.d3{right:auto;left:-40px}
 .dark .combs-r{right:auto;left:-40px}
@@ -585,3 +585,5 @@ html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
 @media (max-width:820px){.dark .combs-r{width:150px;opacity:.35}}
 #proceso{isolation:isolate}
 .dark .combs-r{z-index:-1;width:230px;left:-80px;top:auto;bottom:60px;opacity:.4}
+/* «Del panal al tarro»: panal entero dentro de la sección */
+.dark .combs-r{top:90px;bottom:auto;width:210px}
