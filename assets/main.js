@@ -24,7 +24,7 @@ if (art && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const start = () => {
       art.classList.remove('intro-wait');
       try { sessionStorage.setItem('intro', '1'); } catch (e) {}
-      setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 7500);
+      art.t = setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 7500);
     };
     if ('IntersectionObserver' in window) {
       const ob = new IntersectionObserver(([e]) => { if (e.intersectionRatio >= .9) { ob.disconnect(); start(); } }, { threshold: [.9] });
@@ -32,6 +32,14 @@ if (art && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     } else start();
   }
 }
+
+// Botón para repetir la intro
+const rp = art && art.querySelector('.replay');
+if (rp) rp.addEventListener('click', () => {
+  clearTimeout(art.t);
+  art.classList.remove('intro', 'intro-done', 'intro-wait'); void art.offsetWidth; art.classList.add('intro');
+  art.t = setTimeout(() => { art.classList.remove('intro'); art.classList.add('intro-done'); }, 7500);
+});
 
 // Pedido por WhatsApp a Roberto: primero un resumen para confirmar
 const dlg = document.getElementById('resumen');
