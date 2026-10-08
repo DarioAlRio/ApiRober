@@ -580,3 +580,8 @@ html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
 .deco.d3{right:auto;left:-40px}
 .dark .combs-r{right:auto;left:-40px}
 @media (max-width:820px){.dark .combs-r{right:auto;left:-30px}}
+/* «Del panal al tarro»: panal nuevo, más grande y con celdas de miel */
+.dark .combs-r{width:300px;opacity:.5}
+@media (max-width:820px){.dark .combs-r{width:150px;opacity:.35}}
+#proceso{isolation:isolate}
+.dark .combs-r{z-index:-1;width:230px;left:-80px;top:auto;bottom:60px;opacity:.4}
