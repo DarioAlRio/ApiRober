@@ -41,7 +41,7 @@ a{color:inherit}
 .btn-amber{background:var(--amber);color:var(--brown)}
 .btn-ghost-light{background:transparent;color:var(--amber);box-shadow:inset 0 0 0 3px var(--amber)}
 .hero-art{position:relative;height:460px}
-.art-combs{position:absolute;right:-30px;bottom:0;width:210px;color:var(--amber);opacity:.85}
+.art-combs{position:absolute;right:-30px;bottom:0;width:260px;color:var(--amber);opacity:.85}
 .trail{position:absolute;left:0;top:0;width:75%}
 .flying-bee{position:absolute;left:4%;top:20px;width:70px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3));background:var(--amber);border-radius:50%;padding:8px;animation:buzz 3s ease-in-out infinite}
 .drip{position:absolute;left:0;bottom:-79px;width:100%;height:80px}
@@ -531,3 +531,25 @@ html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
 .post-hero::after{content:"";position:absolute;left:0;right:0;bottom:-59px;height:60px;background:var(--brown);pointer-events:none;
   -webkit-mask:url(/assets/drip.svg) 0 0/100% 100% no-repeat;mask:url(/assets/drip.svg) 0 0/100% 100% no-repeat}
 .post-hero+.post{padding-top:110px}
+/* Celdas de panal decorativas repartidas por la web */
+:is(#tarro,#miel,#comparativa){isolation:isolate}
+.combs.deco{position:absolute;z-index:-1;color:var(--amber);opacity:.8;pointer-events:none;animation:decofloat 9s ease-in-out infinite}
+.deco.d1{right:-50px;top:70px;width:250px;rotate:14deg}
+.deco.d2{left:-70px;bottom:50px;width:260px;rotate:-12deg;animation-delay:-2s}
+.deco.d3{right:-40px;bottom:30px;width:220px;rotate:8deg;animation-delay:-4s}
+.deco.d4{left:-50px;top:50px;width:210px;rotate:-20deg;animation-delay:-1s}
+.deco.d5{right:-60px;bottom:60px;width:230px;rotate:22deg;opacity:.65;animation-delay:-6s}
+.deco.d6{left:-40px;top:45%;width:240px;rotate:6deg;animation-delay:-3s}
+.deco.d7{right:-50px;bottom:40px;width:260px;rotate:-8deg;animation-delay:-5s}
+.deco.d8{left:-45px;top:80px;width:170px;rotate:28deg;opacity:.65;animation-delay:-7s}
+@keyframes decofloat{50%{translate:0 -12px}}
+@media (max-width:820px){.combs.deco{width:130px!important;opacity:.55}}
+:root[data-theme="dark"] .combs.deco{opacity:.4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .combs.deco{opacity:.4}}
+@media (prefers-reduced-motion:reduce){.combs.deco{animation:none}}
+/* Blog: tarjetas de artículos con fondo de celdas de panal */
+.posts .card{position:relative;isolation:isolate;overflow:hidden}
+.posts .card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:var(--amber);opacity:.4;
+  --hexcell:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='34.641' viewBox='0 0 60 34.641'%3E%3Cpath d='M40 17.32 30 34.641H10L0 17.32 10 0h20zM40 17.32h20' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E");
+  -webkit-mask:var(--hexcell) 0 0/30px 17.32px;mask:var(--hexcell) 0 0/30px 17.32px;transition:opacity .3s}
+.posts a:hover .card::before{opacity:.65}
