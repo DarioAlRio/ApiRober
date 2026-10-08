@@ -28,7 +28,7 @@
   @media (max-width:820px){.v2 .vbox{width:150%}}
   /* El vídeo se funde con el marrón de la portada: sin bordes */
   .intro-vid{position:absolute;left:50%;top:50%;width:150%;height:115%;translate:-50% -50%;object-fit:cover;pointer-events:none;
-    -webkit-mask:radial-gradient(closest-side,#000 55%,transparent 100%);mask:radial-gradient(closest-side,#000 55%,transparent 100%)}
+    --hex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cfilter id='b' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='5'/%3E%3C/filter%3E%3Cpolygon filter='url(%23b)' points='60,14 99.8,37 99.8,83 60,106 20.2,83 20.2,37'/%3E%3C/svg%3E");-webkit-mask:var(--hex) center/contain no-repeat;mask:var(--hex) center/contain no-repeat}
   .hero-copy{position:relative;z-index:1}
   @media (max-width:820px){.intro-vid{width:130%;height:125%}}
 </style>
