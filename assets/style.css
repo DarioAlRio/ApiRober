@@ -484,3 +484,5 @@ h2 .hand{color:var(--accent)}
 /* Crédito del autor de la web, discreto */
 .foot .credit{display:inline-block;margin-top:6px;font-size:.72rem;letter-spacing:.06em;opacity:.55;text-decoration:none;transition:opacity .2s}
 .foot .credit:hover,.foot .credit:focus-visible{opacity:1;text-decoration:underline}
+/* Pie: la frase de marca en una sola línea cuando cabe */
+@media (min-width:1000px){.foot-in>p:nth-child(2){white-space:nowrap}}
