@@ -13,11 +13,17 @@
   .ctrl b{color:var(--head);margin-right:6px}
   .ctrl .btn.on{background:var(--amber);color:var(--brown-d)}
   .ctrl output{font-weight:700;min-width:70px;text-align:center;color:var(--head)}
+  .hero-art .intro-scene,.hero-art .blob,.hero-art .art-combs,.hero-art .trail,.hero-art .flying-bee{display:none}
+  /* El vídeo se funde con el marrón de la portada: sin bordes */
+  .intro-vid{position:absolute;left:50%;top:50%;width:150%;height:115%;translate:-50% -50%;object-fit:cover;pointer-events:none;
+    -webkit-mask:radial-gradient(closest-side,#000 55%,transparent 100%);mask:radial-gradient(closest-side,#000 55%,transparent 100%)}
+  .hero-copy{position:relative;z-index:1}
+  @media (max-width:820px){.intro-vid{width:130%;height:125%}}
 </style>
 </head>
 <body>
 <div class="ctrl">
-  <b>Opción 2: brazos largos + cuerpo</b>
+  <b>Vídeo Gemini</b>
   <button class="btn btn-sm" id="replay" type="button">↻ Repetir</button>
   <button class="btn btn-sm btn-ghost speed on" data-r="1" type="button">1×</button>
   <button class="btn btn-sm btn-ghost speed" data-r="0.5" type="button">0,5×</button>
@@ -44,6 +50,9 @@
         </ul>
       </div>
       <div class="hero-art reveal" aria-hidden="true">
+        <video class="intro-vid" muted playsinline preload="auto" poster="/assets/intro-end.jpg">
+          <source src="/assets/intro.webm" type="video/webm"><source src="/assets/intro.mp4" type="video/mp4">
+        </video>
         <svg class="art-combs" viewBox="0 0 260 300"><use href="#comb"/></svg>
         <svg class="intro-scene" viewBox="0 0 300 360">
           <defs>
@@ -135,32 +144,17 @@
   </symbol>
 </svg>
 <script>
-const art = document.querySelector('.hero-art');
-let rate = 1, paused = false;
-const anims = () => document.getAnimations().filter(a => art.contains(a.effect && a.effect.target));
-function play() {
-  paused = false; document.getElementById('pause').textContent = '❚❚ Pausa';
-  art.classList.remove('intro', 'intro-done'); void art.offsetWidth; art.classList.add('intro');
-  anims().forEach(a => a.playbackRate = rate);
-}
-function tick() {
-  const blob = art.querySelector('.blob').getAnimations()[0];
-  if (blob) {
-    document.getElementById('clock').textContent = (blob.currentTime / 1000).toFixed(1).replace('.', ',') + ' s';
-    if (blob.playState === 'finished' && art.classList.contains('intro')) { art.classList.remove('intro'); art.classList.add('intro-done'); }
-  }
-  requestAnimationFrame(tick);
-}
+const v = document.querySelector('.intro-vid');
+let rate = 1;
+const play = () => { v.currentTime = 0; v.playbackRate = rate; v.play(); };
 document.getElementById('replay').onclick = play;
 document.querySelectorAll('.speed').forEach(b => b.onclick = () => {
-  rate = +b.dataset.r; document.querySelectorAll('.speed').forEach(x => x.classList.toggle('on', x === b));
-  anims().forEach(a => a.playbackRate = rate);
+  rate = v.playbackRate = +b.dataset.r; document.querySelectorAll('.speed').forEach(x => x.classList.toggle('on', x === b));
 });
-document.getElementById('pause').onclick = e => {
-  paused = !paused; anims().forEach(a => paused ? a.pause() : a.play());
-  e.target.textContent = paused ? '▶ Seguir' : '❚❚ Pausa';
-};
-play(); tick();
+document.getElementById('pause').onclick = e => { v.paused ? v.play() : v.pause(); e.target.textContent = v.paused ? '▶ Seguir' : '❚❚ Pausa'; };
+(function tick() { document.getElementById('clock').textContent = v.currentTime.toFixed(1).replace('.', ',') + ' s'; requestAnimationFrame(tick); })();
+// Arranca cuando el vídeo se ve casi entero (en móvil hay que bajar)
+new IntersectionObserver(([e], ob) => { if (e.intersectionRatio >= .6) { ob.disconnect(); play(); } }, { threshold: [.6] }).observe(document.querySelector('.hero-art'));
 </script>
 </body>
 </html>
