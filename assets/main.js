@@ -117,18 +117,19 @@ if (sb && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   const table = Array.from({ length: 201 }, (_, i) => path.getPointAtLength(i / 200 * len).y);
   const toProgress = y => { let i = 0; while (i < 200 && table[i + 1] < y) i++; return i / 200; };
   let dragging = false;
-  // Una sola actualización por fotograma, y salto instantáneo (sin el scroll suave del navegador)
-  let pendY = null;
+  // Salto instantáneo y la abeja se recoloca en el mismo evento, para que vaya pegada al cursor
+  let grabDy = 0;
   const dragTo = e => {
     const r = trail.getBoundingClientRect();
-    const p = toProgress(Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) * 1000);
-    if (pendY === null) requestAnimationFrame(() => {
-      window.lenis ? window.lenis.scrollTo(pendY, { immediate: true, force: true }) : scrollTo({ top: pendY, behavior: 'instant' });
-      pendY = null;
-    });
-    pendY = p * (document.documentElement.scrollHeight - innerHeight);
+    const p = toProgress(Math.min(1, Math.max(0, (e.clientY + grabDy - r.top) / r.height)) * 1000);
+    const y = Math.round(p * (document.documentElement.scrollHeight - innerHeight));
+    window.lenis ? window.lenis.scrollTo(y, { immediate: true, force: true }) : scrollTo({ top: y, behavior: 'instant' });
+    move();
   };
-  bee.addEventListener('pointerdown', e => { dragging = true; bee.setPointerCapture(e.pointerId); sb.classList.add('grab'); e.preventDefault(); });
+  bee.addEventListener('pointerdown', e => {
+    const b = bee.getBoundingClientRect(); grabDy = b.top + b.height / 2 - e.clientY;
+    dragging = true; bee.setPointerCapture(e.pointerId); sb.classList.add('grab'); e.preventDefault();
+  });
   bee.addEventListener('pointermove', e => { if (dragging) dragTo(e); });
   const drop = () => { dragging = false; sb.classList.remove('grab'); };
   bee.addEventListener('pointerup', drop); bee.addEventListener('pointercancel', drop);
