@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pruebas · Apirober</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.png?v=9" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .ctrl{position:sticky;top:0;z-index:60;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:14px 16px;background:var(--cream);border-bottom:1px solid rgba(122,69,34,.15)}
+  .ctrl b{color:var(--head);margin-right:6px}
+  .ctrl .btn.on{background:var(--amber);color:var(--brown-d)}
+  .ctrl output{font-weight:700;min-width:70px;text-align:center;color:var(--head)}
+</style>
+</head>
+<body>
+<div class="ctrl">
+  <b>Intro de la portada</b>
+  <button class="btn btn-sm" id="replay" type="button">↻ Repetir</button>
+  <button class="btn btn-sm btn-ghost speed on" data-r="1" type="button">1×</button>
+  <button class="btn btn-sm btn-ghost speed" data-r="0.5" type="button">0,5×</button>
+  <button class="btn btn-sm btn-ghost speed" data-r="0.25" type="button">0,25×</button>
+  <button class="btn btn-sm btn-ghost" id="pause" type="button">❚❚ Pausa</button>
+  <output id="clock">0,0 s</output>
+</div>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="combs combs-l" aria-hidden="true" viewBox="0 0 260 300"><use href="#comb"/></svg>
+    <div class="wrap hero-in">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Fuentemolinos · Burgos</p>
+        <h1>Miel cruda,<br><span class="nw hand">como la hacen</span><br>las abejas.</h1>
+        <p class="hero-lead">Miel de flores de nuestras colmenas en la Ribera burgalesa. Sin calentar, sin mezclas, 100% española.</p>
+        <p class="from">Desde <b>6 €</b> el tarro · directo del apicultor</p>
+        <div class="ctas">
+          <a class="btn btn-amber" href="#pedidos">Quiero un tarro</a>
+          <a class="btn btn-ghost-light" href="#miel">Conocer la miel</a>
+        </div>
+        <ul class="hero-tags">
+          <li>Miel cruda</li><li>Multifloral</li><li>250 g · 500 g · 1 kg</li>
+        </ul>
+      </div>
+      <div class="hero-art reveal" aria-hidden="true">
+        <svg class="art-combs" viewBox="0 0 260 300"><use href="#comb"/></svg>
+        <svg class="intro-scene" viewBox="0 0 300 360">
+          <defs>
+            <pattern id="combPat" width="14" height="24.25" patternUnits="userSpaceOnUse"><path d="M7 0l7 4v8l-7 4-7-4V4zM0 16.2v8M14 16.2v8" fill="#fdb12b" stroke="#c9801a" stroke-width="1.4"/></pattern>
+            <linearGradient id="suitG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e2dccf"/><stop offset=".45" stop-color="#faf7f0"/><stop offset="1" stop-color="#ebe5d8"/></linearGradient>
+            <linearGradient id="glovG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#efe1bd"/><stop offset="1" stop-color="#d9c294"/></linearGradient>
+            <linearGradient id="woodG" x1="0" x2="1"><stop offset="0" stop-color="#b5763a"/><stop offset=".5" stop-color="#d9a062"/><stop offset="1" stop-color="#a86a32"/></linearGradient>
+          </defs>
+          <g class="scene">
+            <g class="frame">
+              <rect x="80" y="232" width="140" height="116" fill="url(#combPat)"/>
+              <rect x="80" y="232" width="140" height="116" fill="none" stroke="url(#woodG)" stroke-width="7"/>
+              <rect x="52" y="222" width="196" height="11" rx="2" fill="url(#woodG)"/>
+              <path d="M150 348c-4 6-6 9-6 12a6 6 0 0 0 12 0c0-3-2-6-6-12z" class="frame-drip" fill="#fdb12b"/>
+              <g id="armL">
+                <path d="M-184.9 -321.3 -179.4 -299.4 -173.9 -277.9 -168.5 -256.9 -163.0 -236.4 -157.6 -216.3 -152.2 -196.7 -146.9 -177.5 -141.6 -158.8 -136.3 -140.5 -131.0 -122.7 -125.7 -105.3 -120.5 -88.4 -115.3 -71.9 -110.2 -55.9 -105.0 -40.3 -99.9 -25.2 -94.8 -10.5 -89.7 3.7 -84.7 17.5 -79.7 30.9 -74.8 43.8 -69.7 56.3 -64.7 68.3 -59.6 79.9 -54.4 91.0 -49.2 101.6 -43.9 111.8 -38.6 121.4 -33.1 130.6 -27.6 139.3 -21.9 147.5 -16.2 155.2 -10.4 162.4 -4.5 169.2 1.4 175.4 7.4 181.1 13.5 186.3 19.6 191.0 25.7 195.2 31.9 198.9 60.1 165.1 57.7 161.1 55.1 156.7 52.5 151.9 49.7 146.7 46.8 141.1 43.9 135.1 40.7 128.6 37.5 121.7 34.1 114.4 30.6 106.7 26.9 98.5 23.0 89.9 19.1 80.9 14.9 71.4 10.7 61.5 6.3 51.1 1.8 40.3 -2.8 29.0 -7.5 17.3 -12.3 5.1 -17.1 -7.6 -22.0 -20.8 -26.9 -34.4 -31.8 -48.6 -36.7 -63.2 -41.7 -78.3 -46.7 -93.8 -51.8 -109.8 -56.9 -126.3 -62.0 -143.3 -67.2 -160.7 -72.4 -178.7 -77.6 -197.0 -82.8 -215.9 -88.1 -235.2 -93.5 -255.0 -98.8 -275.2 -104.2 -295.9 -109.6 -317.1 -115.1 -338.7Z" fill="url(#suitG)" stroke="#d3cbb9" stroke-width="1.5"/>
+                <path d="M-115.1 -338.7 -109.6 -317.1 -104.2 -295.9 -98.8 -275.2 -93.5 -255.0 -88.1 -235.2 -82.8 -215.9 -77.6 -197.0 -72.4 -178.7 -67.2 -160.7 -62.0 -143.3 -56.9 -126.3 -51.8 -109.8 -46.7 -93.8 -41.7 -78.3 -36.7 -63.2 -31.8 -48.6 -26.9 -34.4 -22.0 -20.8 -17.1 -7.6 -12.3 5.1 -7.5 17.3 -2.8 29.0 1.8 40.3 6.3 51.1 10.7 61.5 14.9 71.4 19.1 80.9 23.0 89.9 26.9 98.5 30.6 106.7 34.1 114.4 37.5 121.7 40.7 128.6 43.9 135.1 46.8 141.1 49.7 146.7 52.5 151.9 55.1 156.7 57.7 161.1 60.1 165.1 39.6 189.6 34.5 185.8 29.3 181.6 24.2 176.9 19.0 171.7 13.9 166.0 8.8 159.8 3.7 153.1 -1.4 146.0 -6.5 138.4 -11.6 130.3 -16.6 121.8 -21.6 112.8 -26.6 103.3 -31.6 93.3 -36.5 82.9 -41.5 72.0 -46.4 60.6 -51.3 48.8 -56.3 36.5 -61.2 23.8 -66.1 10.6 -71.1 -3.0 -76.1 -17.1 -81.2 -31.6 -86.2 -46.6 -91.3 -62.1 -96.5 -77.9 -101.6 -94.3 -106.8 -111.1 -112.0 -128.4 -117.3 -146.1 -122.5 -164.2 -127.8 -182.9 -133.2 -202.0 -138.5 -221.5 -143.9 -241.5 -149.3 -262.0 -154.7 -282.9 -160.2 -304.2 -165.7 -326.1Z" fill="#bdb4a1" opacity=".35"/>
+                <g fill="none" stroke="#c9c0ad" stroke-width="2.2" stroke-linecap="round"><path d="M-49.6 88.8Q-25.6 68.1 0.9 65.9"/><path d="M-33.9 119.1Q-11.9 97.7 13.8 94.7"/><path d="M-17.7 145.0Q1.5 123.2 25.7 119.4"/><path d="M-0.9 166.6Q14.5 144.8 36.6 140.2"/></g>
+                <g transform="translate(46.0 182.0) rotate(-50.8)">
+                  <rect x="-24" y="-8" width="48" height="14" rx="6" fill="#e9e3d6" stroke="#cfc6b3"/>
+                  <path d="M-18-6v10M-10-6v10M-2-6v10M6-6v10M14-6v10" stroke="#c4bba8" stroke-width="1.4"/>
+                  <path d="M-21 6h42l-4 26h-34z" fill="url(#glovG)" stroke="#c9ad7a"/>
+                  <path d="M-19 14h38" stroke="#c4a674" stroke-width="1.2" stroke-dasharray="3 3"/>
+                </g>
+                <path d="M50 210c-3-12 6-20 17-19 11 1 18 9 16 20l-2 9H52z" fill="#c8954b"/>
+                <g fill="#d6a55a" stroke="#9c6b2c" stroke-width="1.3">
+                  <rect x="52" y="211" width="7.5" height="26" rx="3.7"/><rect x="58.5" y="210" width="7.5" height="28" rx="3.7"/>
+                  <rect x="65" y="210" width="7.5" height="28" rx="3.7"/><rect x="71.5" y="212" width="7" height="24" rx="3.5"/>
+                </g>
+                <path d="M53 229h25" stroke="#9c6b2c" stroke-width="1" opacity=".5"/>
+              </g>
+              <use href="#armL" transform="translate(300 0) scale(-1 1)"/>
+            </g>
+            <rect x="40" y="250" width="220" height="110" rx="4" fill="url(#woodG)"/>
+            <rect x="46" y="250" width="208" height="7" fill="#5a3117"/>
+            <path d="M40 286h220M40 322h220" stroke="#8a5229" stroke-width="2" opacity=".6"/>
+            <rect x="120" y="300" width="60" height="12" rx="6" fill="#5a3117"/>
+          </g>
+        </svg>
+        <svg class="blob" viewBox="0 0 300 360">
+          <defs>
+            <clipPath id="dropClip"><path d="M150 8C96 78 30 140 30 222a120 120 0 0 0 240 0C270 140 204 78 150 8z"/></clipPath>
+            <linearGradient id="dropFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc34d"/><stop offset=".6" stop-color="#fdb12b"/><stop offset="1" stop-color="#f29a1a"/></linearGradient>
+          </defs>
+          <path d="M150 8C96 78 30 140 30 222a120 120 0 0 0 240 0C270 140 204 78 150 8z" fill="rgba(253,177,43,.14)" stroke="rgba(253,177,43,.35)" stroke-width="3"/>
+          <g clip-path="url(#dropClip)">
+            <g class="honey-level">
+              <path class="honey-wave" d="M-300 20q37.5-16 75 0t75 0 75 0 75 0 75 0 75 0 75 0 75 0 75 0 75 0 75 0 75 0V400H-300z" fill="url(#dropFill)"/>
+            </g>
+            <ellipse cx="108" cy="150" rx="11" ry="30" fill="#fff" opacity=".45" transform="rotate(28 108 150)"/>
+            <circle cx="122" cy="102" r="9" fill="#fff" opacity=".5"/>
+          </g>
+        </svg>
+        <span class="falling-drop"></span>
+        <svg class="trail" viewBox="0 0 300 200"><path d="M10 180 C80 120 60 40 150 60 S260 20 290 10" fill="none" stroke="#fdb12b" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
+        <img class="flying-bee" src="/assets/abeja.png?v=2" alt="" width="70" height="70">
+      </div>
+    </div>
+    <svg class="drip" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h1440v30c-40 0-50 30-80 30s-30-22-70-22-40 48-80 48-38-56-90-56-50 26-90 26-40-30-90-30-40 60-90 60-50-60-100-60-50 20-90 20-40-24-90-24-50 44-90 44-50-40-90-40-40 18-80 18-50-30-90-30-50 50-100 50-60-40-110-40S40 30 0 30z" fill="#7a4522"/></svg>
+  </section>
+
+</main>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="jarSym" viewBox="0 0 60 80">
+    <rect x="12" y="2" width="36" height="11" rx="3" fill="#5a3117"/>
+    <path d="M14 13h32v4c5 2 8 6 8 11v40c0 6-4 10-10 10H16c-6 0-10-4-10-10V28c0-5 3-9 8-11z" fill="#fdb12b"/>
+    <rect x="6" y="36" width="48" height="22" fill="#7a4522"/>
+    <path d="M30 31c-7 6-11 10-11 16a11 11 0 0 0 22 0c0-6-4-10-11-16z" fill="#fdb12b" stroke="#7a4522" stroke-width="1.5"/>
+    <path d="M11 24c0-3 2-6 4-7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".5" fill="none"/>
+  </symbol>
+  <symbol id="comb" viewBox="0 0 260 300">
+    <g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round">
+      <path d="M30 20l26 15v30L30 80 4 65V35z"/><path d="M82 20l26 15v30L82 80 56 65V35z"/>
+      <path d="M56 65l26 15v30l-26 15-26-15V80z"/><path d="M108 65l26 15v30l-26 15-26-15V80z"/>
+      <path d="M160 65l26 15v30l-26 15-26-15V80z"/><path d="M82 110l26 15v30l-26 15-26-15v-30z"/>
+      <path d="M134 110l26 15v30l-26 15-26-15v-30z"/><path d="M186 110l26 15v30l-26 15-26-15v-30z"/>
+      <path d="M160 155l26 15v30l-26 15-26-15v-30z"/><path d="M212 155l26 15v30l-26 15-26-15v-30z"/>
+      <path d="M186 200l26 15v30l-26 15-26-15v-30z"/>
+    </g>
+  </symbol>
+</svg>
+<script>
+const art = document.querySelector('.hero-art');
+let rate = 1, t0 = 0, done, paused = false;
+const anims = () => document.getAnimations().filter(a => art.contains(a.effect && a.effect.target));
+function play() {
+  clearTimeout(done); paused = false; document.getElementById('pause').textContent = '❚❚ Pausa';
+  art.classList.remove('intro', 'intro-done'); void art.offsetWidth; art.classList.add('intro');
+  anims().forEach(a => a.playbackRate = rate);
+  t0 = performance.now();
+}
+// termina la intro cuando acaba la animación de la gota (respeta la velocidad elegida)
+function tick() {
+  const blob = document.getAnimations().find(a => a.animationName === 'dropfall');
+  if (blob) {
+    document.getElementById('clock').textContent = (blob.currentTime / 1000).toFixed(1).replace('.', ',') + ' s';
+    if (blob.playState === 'finished' && art.classList.contains('intro')) { art.classList.remove('intro'); art.classList.add('intro-done'); }
+  }
+  requestAnimationFrame(tick);
+}
+document.getElementById('replay').onclick = play;
+document.querySelectorAll('.speed').forEach(b => b.onclick = () => {
+  rate = +b.dataset.r; document.querySelectorAll('.speed').forEach(x => x.classList.toggle('on', x === b));
+  anims().forEach(a => a.playbackRate = rate);
+});
+document.getElementById('pause').onclick = e => {
+  paused = !paused; anims().forEach(a => paused ? a.pause() : a.play());
+  e.target.textContent = paused ? '▶ Seguir' : '❚❚ Pausa';
+};
+play(); tick();
+</script>
+</body>
+</html>
