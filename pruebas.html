@@ -13,11 +13,22 @@
   .ctrl b{color:var(--head);margin-right:6px}
   .ctrl .btn.on{background:var(--amber);color:var(--brown-d)}
   .ctrl output{font-weight:700;min-width:70px;text-align:center;color:var(--head)}
+  /* Versión anterior: zoom solo de la escena mientras la gota crece en su sitio */
+  .hero-art.intro.v-prev .intro-scene{animation:none}
+  .hero-art.intro.v-prev .scene{transform-origin:150px 170px;animation:zoomPrev 2.6s cubic-bezier(.55,0,.8,.4) 4.5s both}
+  @keyframes zoomPrev{to{transform:scale(3.4);opacity:0}}
+  .hero-art.intro.v-prev .blob{animation:dropfallPrev 2.6s cubic-bezier(.55,0,.6,1) 4.5s both}
+  @keyframes dropfallPrev{
+    0%{opacity:0;transform:translateY(-44%) rotate(0) scale(.06)}
+    1%{opacity:1;transform:translateY(-44%) rotate(0) scale(.06)}
+    100%{opacity:1;transform:rotate(-10deg) scale(1)}}
 </style>
 </head>
 <body>
 <div class="ctrl">
   <b>Intro de la portada</b>
+  <button class="btn btn-sm btn-ghost ver on" data-v="" type="button">Actual</button>
+  <button class="btn btn-sm btn-ghost ver" data-v="v-prev" type="button">Anterior</button>
   <button class="btn btn-sm" id="replay" type="button">↻ Repetir</button>
   <button class="btn btn-sm btn-ghost speed on" data-r="1" type="button">1×</button>
   <button class="btn btn-sm btn-ghost speed" data-r="0.5" type="button">0,5×</button>
@@ -136,7 +147,7 @@ function play() {
 }
 // termina la intro cuando acaba la animación de la gota (respeta la velocidad elegida)
 function tick() {
-  const blob = document.getAnimations().find(a => a.animationName === 'dropfall');
+  const blob = document.getAnimations().find(a => a.animationName.startsWith('dropfall'));
   if (blob) {
     document.getElementById('clock').textContent = (blob.currentTime / 1000).toFixed(1).replace('.', ',') + ' s';
     if (blob.playState === 'finished' && art.classList.contains('intro')) { art.classList.remove('intro'); art.classList.add('intro-done'); }
@@ -144,6 +155,10 @@ function tick() {
   requestAnimationFrame(tick);
 }
 document.getElementById('replay').onclick = play;
+document.querySelectorAll('.ver').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.ver').forEach(x => x.classList.toggle('on', x === b));
+  art.classList.toggle('v-prev', b.dataset.v === 'v-prev'); play();
+});
 document.querySelectorAll('.speed').forEach(b => b.onclick = () => {
   rate = +b.dataset.r; document.querySelectorAll('.speed').forEach(x => x.classList.toggle('on', x === b));
   anims().forEach(a => a.playbackRate = rate);
