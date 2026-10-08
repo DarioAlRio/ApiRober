@@ -562,3 +562,13 @@ html.lenis,.lenis.lenis-smooth{scroll-behavior:auto!important}
 .deco.b4{left:-50px;top:40px;width:240px;rotate:-8deg}
 .deco.b5{right:-50px;bottom:40px;width:190px;rotate:10deg}
 .nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+/* Blog: celdas decorativas más visibles */
+.post .deco{opacity:1!important;color:var(--amber-d)}
+.post-hero .deco{opacity:.85!important}
+:root[data-theme="dark"] .post .deco{opacity:.7!important;color:var(--amber)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .post .deco{opacity:.7!important;color:var(--amber)}}
+.deco.b1{width:270px}.deco.b2{width:210px}.deco.b3{width:250px}.deco.b4{width:280px}.deco.b5{width:240px}
+/* Portada: el panal queda detrás de la gota; la abeja y la estela, delante */
+.hero-art .vbox{z-index:1}
+.hero-art .art-combs{z-index:0}
+.hero-art :is(.trail,.flying-bee){z-index:2}
