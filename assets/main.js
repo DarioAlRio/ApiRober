@@ -156,7 +156,7 @@ const mp = document.querySelector('.mini-map');
 if (mp) {
   const svg = mp.querySelector('svg'), W = 400, H = 300, MAX = 24;
   const [fx, fy] = mp.dataset.fm.split(' ').map(Number);
-  let k = 1, cx = W / 2, cy = H / 2, anim;
+  let k = 1, cx = W / 2, cy = H / 2, anim, moved = false;  // sin arrastrar, el zoom siempre va centrado en Fuentemolinos
   const clamp = () => {
     k = Math.min(MAX, Math.max(1, k));
     const hw = W / 2 / k, hh = H / 2 / k;
@@ -168,6 +168,7 @@ if (mp) {
     svg.setAttribute('viewBox', `${cx - w / 2} ${cy - h / 2} ${w} ${h}`);
     svg.querySelectorAll('.pin').forEach(p => p.setAttribute('transform', `scale(${1 / k})`));
     mp.classList.toggle('zoomed', k > 1.01);
+    if (k < 1.01) moved = false;
     mp.classList.toggle('deep', k >= 5);
   };
   // Transición suave hasta un zoom y centro dados
@@ -186,14 +187,15 @@ if (mp) {
   // Zoom manteniendo fijo un punto del mapa
   const zoomAt = (f, px, py, smooth) => {
     const k2 = Math.min(MAX, Math.max(1, k * f)), s = k / k2;
+    if (!moved) return smooth ? go(k2, fx, fy) : (k = k2, cx = fx, cy = fy, draw());
     const nx = px + (cx - px) * s, ny = py + (cy - py) * s;
     smooth ? go(k2, nx, ny) : (k = k2, cx = nx, cy = ny, draw());
   };
   mp.querySelector('.map-ctrl').addEventListener('click', e => {
     const z = e.target.closest('button')?.dataset.z;
-    if (z === 'in') k < 1.01 ? go(2.5, fx, fy) : zoomAt(2, cx, cy, true);  // el primer clic va hacia Fuentemolinos
+    if (z === 'in') k < 1.01 ? go(2.5, fx, fy) : zoomAt(2, cx, cy, true);
     if (z === 'out') zoomAt(.5, cx, cy, true);
-    if (z === 'reset') go(1, W / 2, H / 2);
+    if (z === 'reset') { moved = false; go(1, W / 2, H / 2); }
   });
   svg.addEventListener('dblclick', e => { e.preventDefault(); zoomAt(2, ...at(e.clientX, e.clientY), true); });
   // Rueda solo con Ctrl/⌘ para no secuestrar el scroll de la página
@@ -206,7 +208,7 @@ if (mp) {
     const prev = pts.get(e.pointerId); pts.set(e.pointerId, [e.clientX, e.clientY]);
     const r = svg.getBoundingClientRect();
     if (pts.size === 1 && k > 1.01) {
-      svg.classList.add('drag'); cancelAnimationFrame(anim);
+      svg.classList.add('drag'); cancelAnimationFrame(anim); moved = true;
       cx -= (e.clientX - prev[0]) / r.width * W / k; cy -= (e.clientY - prev[1]) / r.height * H / k; draw();
     } else if (pts.size === 2) {
       const [a, b] = [...pts.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]);
