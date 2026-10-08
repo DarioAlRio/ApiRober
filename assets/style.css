@@ -476,3 +476,5 @@ h2 .hand{color:var(--accent)}
 @media (max-width:820px){.stepper button{width:34px;height:38px}}
 .btn:not(.btn-ghost):not(.btn-ghost-light){clip-path:polygon(0 0,100% 0,100% 50%,100% 100%,0 100%,0 50%);transition:transform .2s,clip-path .3s,border-radius .3s}
 .btn:not(.btn-ghost):not(.btn-ghost-light):hover,.btn:not(.btn-ghost):not(.btn-ghost-light):focus-visible{border-radius:6px;box-shadow:none;clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,16px 100%,0 50%)}
+.theme-toggle.spin{animation:hexspin .6s cubic-bezier(.4,0,.2,1)}
+@keyframes hexspin{from{rotate:0deg}to{rotate:360deg}}
