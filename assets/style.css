@@ -486,3 +486,5 @@ h2 .hand{color:var(--accent)}
 .foot .credit:hover,.foot .credit:focus-visible{opacity:1;text-decoration:underline}
 /* Pie: la frase de marca en una sola línea cuando cabe */
 @media (min-width:1000px){.foot-in>p:nth-child(2){white-space:nowrap}}
+/* Mapa de origen: provincia de Burgos */
+.mini-map .prov{fill:rgba(253,177,43,.55);stroke:var(--head);stroke-width:1.4;stroke-linejoin:round}
