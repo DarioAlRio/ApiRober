@@ -587,3 +587,4 @@ header.post-hero{background:var(--brown) url("data:image/svg+xml,%3Csvg xmlns='h
 .dark .combs-r{z-index:-1;width:230px;left:-80px;top:auto;bottom:60px;opacity:.4}
 /* «Del panal al tarro»: panal entero dentro de la sección */
 .dark .combs-r{top:90px;bottom:auto;width:210px}
+.dark .combs-r{top:auto;bottom:10px}
