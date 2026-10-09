@@ -17,3 +17,10 @@ tt.addEventListener('click', () => {
 });
 tt.addEventListener('animationend', () => tt.classList.remove('spin'));
 label();
+
+// Barra de lectura: se llena de miel según avanzas en el artículo
+const rb = document.querySelector('.read-bar'), post = document.querySelector('.post .wrap');
+if (rb && post) {
+  const upd = () => { const r = post.getBoundingClientRect(); rb.style.setProperty('--p', Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)))); };
+  addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
+}
