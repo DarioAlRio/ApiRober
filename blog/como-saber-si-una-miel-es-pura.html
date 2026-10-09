@@ -79,6 +79,15 @@
   .pb-sizes li{display:grid;place-content:center;text-align:center;width:84px;height:96px;margin:0!important;background:var(--amber);color:var(--brown);font-weight:900;font-size:1.15rem!important;line-height:1.15;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
   .pb-sizes li:nth-child(2){translate:0 18px}
   .pb-sizes b{display:block;font-size:.75rem;letter-spacing:.06em;opacity:.8}
+  .cap{float:left;width:84px;height:96px;margin:4px 16px 0 0;display:grid;place-items:center;font-size:3.1rem;font-weight:900;line-height:1;background:var(--amber);color:var(--brown);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .sep{display:flex;justify-content:center;gap:8px;margin:48px 0 0}
+  .sep i{width:14px;height:16px;background:var(--amber);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .sep i:nth-child(2){translate:0 8px;opacity:.6}.sep i:nth-child(3){opacity:.3}
+  .sep+h2{margin-top:30px}
+  .post .wrap>ul{list-style:none;padding-left:4px}
+  .post .wrap>ul>li{position:relative;padding-left:26px}
+  .post .wrap>ul>li::before{content:"";position:absolute;left:0;top:.42em;width:12px;height:14px;background:var(--amber);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://apirober.es/blog/como-saber-si-una-miel-es-pura#post", "headline": "Cómo saber si una miel es pura: qué funciona y qué es un mito", "description": "Los trucos caseros del vaso de agua, el mechero o el papel no sirven para saber si una miel es pura. Te contamos qué mirar de verdad: etiqueta, origen, cristalización y a quién se la compras.", "url": "https://apirober.es/blog/como-saber-si-una-miel-es-pura", "mainEntityOfPage": "https://apirober.es/blog/como-saber-si-una-miel-es-pura", "datePublished": "2026-10-08", "dateModified": "2026-10-08", "inLanguage": "es", "wordCount": 331, "image": "https://apirober.es/assets/og.png?v=3", "author": {"@type": "Organization", "@id": "https://apirober.es/#org", "name": "Apirober", "url": "https://apirober.es/", "logo": "https://apirober.es/favicon.png"}, "publisher": {"@type": "Organization", "@id": "https://apirober.es/#org", "name": "Apirober", "url": "https://apirober.es/", "logo": "https://apirober.es/favicon.png"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://apirober.es/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://apirober.es/blog"}, {"@type": "ListItem", "position": 3, "name": "Cómo saber si una miel es pura: qué funciona y qué es un mito", "item": "https://apirober.es/blog/como-saber-si-una-miel-es-pura"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿El truco del vaso de agua sirve para saber si la miel es pura?", "acceptedAnswer": {"@type": "Answer", "text": "No. Un jarabe espeso de azúcar también se queda en el fondo. Las adulteraciones se detectan en laboratorio."}}, {"@type": "Question", "name": "¿Qué debo mirar para comprar miel pura?", "acceptedAnswer": {"@type": "Answer", "text": "El país de origen en la etiqueta, que venga de un productor identificado, que cristalice con el frío y un precio coherente con una miel local."}}]}]}
@@ -126,6 +135,7 @@
 </ul>
 <p>Las adulteraciones con siropes se detectan en laboratorio, con análisis específicos. En casa no se puede comprobar con seguridad.</p>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>Lo que sí te da pistas</h2>
 <h3>1. La etiqueta</h3>
 <p>Busca el <b>país de origen</b>. Si pone “mezcla de mieles originarias y no originarias de la UE”, no sabes de dónde viene. Una miel de un único origen y de un productor identificado es más fácil de rastrear. En España los apicultores tienen un registro de explotación (REGA) que puede aparecer en la etiqueta.</p>

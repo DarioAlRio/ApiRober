@@ -79,6 +79,15 @@
   .pb-sizes li{display:grid;place-content:center;text-align:center;width:84px;height:96px;margin:0!important;background:var(--amber);color:var(--brown);font-weight:900;font-size:1.15rem!important;line-height:1.15;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
   .pb-sizes li:nth-child(2){translate:0 18px}
   .pb-sizes b{display:block;font-size:.75rem;letter-spacing:.06em;opacity:.8}
+  .cap{float:left;width:84px;height:96px;margin:4px 16px 0 0;display:grid;place-items:center;font-size:3.1rem;font-weight:900;line-height:1;background:var(--amber);color:var(--brown);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .sep{display:flex;justify-content:center;gap:8px;margin:48px 0 0}
+  .sep i{width:14px;height:16px;background:var(--amber);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .sep i:nth-child(2){translate:0 8px;opacity:.6}.sep i:nth-child(3){opacity:.3}
+  .sep+h2{margin-top:30px}
+  .post .wrap>ul{list-style:none;padding-left:4px}
+  .post .wrap>ul>li{position:relative;padding-left:26px}
+  .post .wrap>ul>li::before{content:"";position:absolute;left:0;top:.42em;width:12px;height:14px;background:var(--amber);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://apirober.es/blog/como-conservar-la-miel#post", "headline": "Cómo conservar la miel: dónde guardarla y cuánto dura", "description": "Dónde guardar la miel, si va en la nevera, cuánto dura y qué hacer si cristaliza o fermenta. Guía práctica para conservar bien la miel cruda en casa.", "url": "https://apirober.es/blog/como-conservar-la-miel", "mainEntityOfPage": "https://apirober.es/blog/como-conservar-la-miel", "datePublished": "2026-10-08", "dateModified": "2026-10-08", "inLanguage": "es", "wordCount": 282, "image": "https://apirober.es/assets/og.png?v=3", "author": {"@type": "Organization", "@id": "https://apirober.es/#org", "name": "Apirober", "url": "https://apirober.es/", "logo": "https://apirober.es/favicon.png"}, "publisher": {"@type": "Organization", "@id": "https://apirober.es/#org", "name": "Apirober", "url": "https://apirober.es/", "logo": "https://apirober.es/favicon.png"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://apirober.es/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://apirober.es/blog"}, {"@type": "ListItem", "position": 3, "name": "Cómo conservar la miel: dónde guardarla y cuánto dura", "item": "https://apirober.es/blog/como-conservar-la-miel"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿La miel tiene que ir en la nevera?", "acceptedAnswer": {"@type": "Answer", "text": "No. Se conserva a temperatura ambiente, en un sitio seco y con el tarro cerrado. En la nevera cristaliza antes."}}, {"@type": "Question", "name": "¿Cómo sé si la miel se ha estropeado?", "acceptedAnswer": {"@type": "Answer", "text": "Si huele ácido o fermentado, hace espuma o burbujea, ha fermentado por humedad. Que esté dura o blanquecina es solo cristalización."}}]}]}
@@ -125,12 +134,15 @@
   <li><b>Con el tarro bien cerrado</b>: la miel absorbe humedad y olores del ambiente.</li>
 </ul>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>¿Va en la nevera?</h2>
 <p>No hace falta y no conviene: el frío acelera la cristalización y la miel se endurece antes. Si te gusta cremosa, no pasa nada; si la prefieres líquida, mejor en la despensa.</p>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>¿Cuánto dura?</h2>
 <p>Bien cerrada y en un sitio seco, la miel se conserva durante mucho tiempo, porque tiene poca agua y mucho azúcar. Aun así, cada lote lleva una <b>fecha de consumo preferente</b>: a partir de ella puede perder algo de aroma, aunque no se vuelve peligrosa si se ha guardado bien.</p>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>Errores habituales</h2>
 <ul>
   <li><b>Meter una cuchara mojada o con restos.</b> El agua puede hacer que la miel fermente. Usa siempre una cuchara limpia y seca.</li>
@@ -138,6 +150,7 @@
   <li><b>Calentarla mucho para que esté líquida.</b> Si cristaliza, al baño maría templado, sin pasar de unos 40 °C. Lo contamos paso a paso en <a href="/blog/por-que-cristaliza-la-miel-cruda">por qué cristaliza la miel cruda</a>.</li>
 </ul>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>¿Cómo sé si se ha estropeado?</h2>
 <p>Si huele ácido o a fermentado, hace espuma en la superficie o burbujea, ha cogido humedad y ha fermentado. Que se ponga dura o blanquecina <b>no</b> es estropearse: es cristalizar.</p>
 
