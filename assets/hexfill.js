@@ -1,6 +1,6 @@
 // Celdas rellenas al azar (~5%), nunca dos juntas en los fondos de panal: distintas en cada sección y en cada visita
 (() => {
-  const T = [['.hero', '#fdb12b', .6, 1], ['#calendario,#origen,#dudas,#pedidos', '#000', .5, 1], ['.post-hero', '#fdb12b', .06, 1], ['.posts .card', '#000', .5, .5]];
+  const T = [['.hero', '#fdb12b', .6, 1], ['#calendario,#origen,#dudas,#pedidos', '#000', .5, 1], ['.post-hero', '#fdb12b', .06, 1], ['.posts .card', '#000', .5, .5], ['.lost', '#fdb12b', .06, 1]];
   const hex = (x, y) => 'M' + [0, 60, 120, 180, 240, 300].map(a => `${(x + 18.5 * Math.cos(a * Math.PI / 180)).toFixed(1)} ${(y + 18.5 * Math.sin(a * Math.PI / 180)).toFixed(1)}`).join(' ') + 'z';
   const run = () => T.forEach(([sel, col, op, k]) => document.querySelectorAll(sel).forEach(el => {
     const w = Math.ceil(el.offsetWidth / k / 60) * 60, h = Math.ceil((el.offsetHeight + 120) / k / 34.641) * 34.641;
