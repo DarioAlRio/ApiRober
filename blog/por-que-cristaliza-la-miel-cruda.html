@@ -79,6 +79,15 @@
   .pb-sizes li{display:grid;place-content:center;text-align:center;width:84px;height:96px;margin:0!important;background:var(--amber);color:var(--brown);font-weight:900;font-size:1.15rem!important;line-height:1.15;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
   .pb-sizes li:nth-child(2){translate:0 18px}
   .pb-sizes b{display:block;font-size:.75rem;letter-spacing:.06em;opacity:.8}
+  .cap{float:left;width:84px;height:96px;margin:4px 16px 0 0;display:grid;place-items:center;font-size:3.1rem;font-weight:900;line-height:1;background:var(--amber);color:var(--brown);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .sep{display:flex;justify-content:center;gap:8px;margin:48px 0 0}
+  .sep i{width:14px;height:16px;background:var(--amber);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .sep i:nth-child(2){translate:0 8px;opacity:.6}.sep i:nth-child(3){opacity:.3}
+  .sep+h2{margin-top:30px}
+  .post .wrap>ul{list-style:none;padding-left:4px}
+  .post .wrap>ul>li{position:relative;padding-left:26px}
+  .post .wrap>ul>li::before{content:"";position:absolute;left:0;top:.42em;width:12px;height:14px;background:var(--amber);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://apirober.es/blog/por-que-cristaliza-la-miel-cruda#post", "headline": "¿Por qué cristaliza la miel cruda? (y por qué es buena señal)", "description": "La miel cruda cristaliza de forma natural por su glucosa y el frío. Te explicamos por qué pasa, por qué es señal de miel sin calentar y cómo volverla líquida sin estropearla.", "url": "https://apirober.es/blog/por-que-cristaliza-la-miel-cruda", "mainEntityOfPage": "https://apirober.es/blog/por-que-cristaliza-la-miel-cruda", "datePublished": "2026-10-08", "dateModified": "2026-10-08", "inLanguage": "es", "wordCount": 494, "image": "https://apirober.es/assets/og.png?v=3", "author": {"@type": "Organization", "@id": "https://apirober.es/#org", "name": "Apirober", "url": "https://apirober.es/", "logo": "https://apirober.es/favicon.png"}, "publisher": {"@type": "Organization", "@id": "https://apirober.es/#org", "name": "Apirober", "url": "https://apirober.es/", "logo": "https://apirober.es/favicon.png"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://apirober.es/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://apirober.es/blog"}, {"@type": "ListItem", "position": 3, "name": "¿Por qué cristaliza la miel cruda? (y por qué es buena señal)", "item": "https://apirober.es/blog/por-que-cristaliza-la-miel-cruda"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿La miel cristalizada está mala?", "acceptedAnswer": {"@type": "Answer", "text": "No. La cristalización es un proceso natural de la miel cruda: la glucosa forma cristales con el frío. No indica que esté caducada ni que lleve azúcar añadido."}}, {"@type": "Question", "name": "¿Cómo se descristaliza la miel?", "acceptedAnswer": {"@type": "Answer", "text": "Al baño maría con agua templada, sin pasar de unos 40 °C, y removiendo. Mejor evitar el microondas y el agua hirviendo."}}]}]}
@@ -119,9 +128,10 @@
     <div class="wrap narrow">
 
 <h2>Qué es la cristalización</h2>
-<p>La miel es una solución sobresaturada de azúcares: tiene más azúcar disuelto del que el agua que contiene puede mantener de forma estable. Sus dos azúcares principales son la <b>fructosa</b> y la <b>glucosa</b>. La glucosa es menos soluble y, con el tiempo, empieza a separarse en pequeños cristales. Esos cristales arrastran al resto y la miel pasa de líquida a cremosa o sólida.</p>
+<p><span class="cap" aria-hidden="true">L</span><span class="sr">L</span>a miel es una solución sobresaturada de azúcares: tiene más azúcar disuelto del que el agua que contiene puede mantener de forma estable. Sus dos azúcares principales son la <b>fructosa</b> y la <b>glucosa</b>. La glucosa es menos soluble y, con el tiempo, empieza a separarse en pequeños cristales. Esos cristales arrastran al resto y la miel pasa de líquida a cremosa o sólida.</p>
 <p>No cambia su composición: es la misma miel, solo que en otro estado, igual que el agua y el hielo.</p>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>¿Por qué unas mieles cristalizan antes que otras?</h2>
 <ul>
   <li><b>Las flores de origen.</b> Cada flor da un néctar con distinta proporción de glucosa y fructosa. Las mieles con más glucosa cristalizan antes; las que tienen más fructosa aguantan líquidas más tiempo.</li>
@@ -129,12 +139,14 @@
   <li><b>Las partículas naturales.</b> El polen y las diminutas partículas de cera de una miel cruda sirven de “semilla” para que se formen los cristales.</li>
 </ul>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>Por qué es buena señal</h2>
 <p>Muchas mieles industriales se calientan a temperaturas altas y se filtran a presión para que sigan líquidas durante meses en el lineal. Ese tratamiento elimina buena parte del polen y degrada enzimas naturales de la miel.</p>
 <p>Una miel cruda, en cambio, conserva su polen y no ha pasado por calor, así que <b>tarde o temprano cristaliza</b>. Que tu miel cristalice no garantiza por sí solo que sea cruda, pero una miel que lleva años líquida en un armario frío da que pensar.</p>
 
 <div class="post-note"><span class="note-tag">Consejo de Roberto</span><b>En Apirober</b> extraemos la miel en frío y la envasamos sin calentar ni mezclar. Por eso, con el frío, nuestros tarros se vuelven cremosos y más claros: es lo esperado.</div>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>Cómo volverla líquida sin estropearla</h2>
 <ol>
   <li>Pon el tarro, sin tapa, en un cazo con agua <b>templada</b>, al baño maría.</li>
@@ -143,6 +155,7 @@
 </ol>
 <p>Evita el microondas y el agua hirviendo: el calor fuerte altera el aroma y los componentes naturales de la miel cruda. Y si te gusta cremosa, no hagas nada: untada en una tostada está buenísima así.</p>
 
+<div class="sep" aria-hidden="true"><i></i><i></i><i></i></div>
 <h2>Preguntas rápidas</h2>
 <h3>¿La miel cristalizada está caducada?</h3>
 <p>No. La cristalización no indica que la miel esté mala ni que haya perdido propiedades.</p>
